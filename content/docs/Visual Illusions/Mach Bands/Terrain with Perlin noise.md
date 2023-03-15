@@ -18,7 +18,7 @@ En esta solución se porpone la generacion aleatoria de terreno para un simple s
 
 El usuario jwdunn1 propone la generación de un mundo inspirado en el popular videojuego Minecraft haciendo uso del ruido Perlin:
 
-{{< p5-iframe sketch="showcase/sketches/terrain/terrainGenerator2.js" width="700" height="500" >}}
+{{< p5-iframe sketch="/showcase/sketches/terrain/terrainGenerator2.js" width="700" height="500" >}}
 
 **3. Conclusión**
 

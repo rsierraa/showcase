@@ -21,7 +21,7 @@ Para ayudar a esta población, se desarrollo una aplicacion que haciendo uso de 
 
 en esta solución solo se tienen en cuenta los colores rojo, verde, azul y amarillo. Pues los tipos mas comunes de daltonismo involucran los colores dichos colores.
 
-{{< p5-iframe sketch="showcase/sketches/colorBlind/colorBlind.js"  width="525" height="525" >}}
+{{< p5-iframe sketch="/showcase/sketches/colorBlind/colorBlind.js"  width="525" height="525" >}}
 
 **3. Conclusión**
 
