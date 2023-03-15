@@ -1,0 +1,39 @@
+<img hidden id="uploaded-image" src="" /> <!--imagen subida, de ella se obtiene la representación binaria que luego es usada por el canvas para obtener la representación en RGBA -->
+<canvas hidden id="canvas-for-rgba"></canvas> <!-- canvas solo para dibujar la imagen subida y obtener la representación en RGBA, por eso puede ser oculta -->
+
+<input type="file" id="image-input" accept="image/jpeg, image/png, image/jpg">
+
+Kernel: <select id="kernel-select">
+    <option selected value="identity">Identity</option>
+    <option value="gaussian-blur">Gaussian Blur</option>
+    <option value="sharpen">Sharpen</option>
+    <option value="outline">Outline</option>
+    <option value="emboss">Emboss</option>
+    <option value="left-sobel">Left Sobel</option>
+    <option value="right-sobel">Right Sobel</option>
+    <option value="top-sobel">Top Sobel</option>
+    <option value="bottom-sobel">Bottom Sobel</option>
+</select>
+
+<input hidden id="lightness-input" type="number" placeholder="Lightness"></input>
+<select hidden id="lightness-definition-select">
+    <option selected value="HSI">HSI</option>
+    <option value="HSV">HSV</option>
+    <option value="HSL">HSL</option>
+    <option value="Luma 601">Luma 601</option>
+    <option value="Luma 240">Luma 240</option>
+    <option value="Luma 709">Luma 709</option>
+    <option value="Luma 2020">Luma 2020</option>
+</select>
+
+<canvas id="transformed-image-canvas"></canvas>
+
+<!-- Load d3.js -->
+<script src="https://d3js.org/d3.v4.js"></script>
+
+<!-- Create a div where the graph will take place -->
+<div id="red-histogram"></div>
+<div id="green-histogram"></div>
+<div id="blue-histogram"></div>
+
+<script src="convolutionMask.js"></script>
