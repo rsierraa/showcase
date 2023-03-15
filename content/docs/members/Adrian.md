@@ -7,4 +7,4 @@ weight: 2
 
 ## Info
 
-Estudiante de octavo semestre, interesado en inteligencia artificial, con experiencia en desarrollo web utilizando frameworks de PHP.
+Estudiante de octavo semestre, interesado en inteligencia artificial.
