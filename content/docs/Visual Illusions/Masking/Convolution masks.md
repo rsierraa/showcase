@@ -17,7 +17,7 @@ Un script que permite cargar una imagen para que sea procesada por el kernel de 
 
 De igual forma, se presentan los histogramas RGB de la imagen cargada.
 
-<iframe src="/showcase/sketches/convolution/kernels.html" style="border:none;width:750px;height:700px;"></iframe>
+<iframe src="showcase/sketches/convolution/kernels.html" style="border:none;width:750px;height:700px;"></iframe>
 
 **3. Conclusón**
 

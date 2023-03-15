@@ -13,11 +13,11 @@ A continuación se pixela el mismo video utilizando dos tecnicas diferentes: Col
 
 Spatial Coherence
 
-{{< p5-iframe sketch="/showcase/sketches/pixelatorDemoSC.js" width="800" height="400" >}}
+{{< p5-iframe sketch="showcase/sketches/pixelatorDemoSC.js" width="800" height="400" >}}
 
 Color Averaging
 
-{{< p5-iframe sketch="/showcase/sketches/pixelatorDemoCA.js" width="800" height="400" >}}
+{{< p5-iframe sketch="showcase/sketches/pixelatorDemoCA.js" width="800" height="400" >}}
 
 **3. Conclusión**
 

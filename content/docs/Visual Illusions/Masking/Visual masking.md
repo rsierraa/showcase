@@ -17,7 +17,7 @@ A continuación se hace uso de una rejilla que presenta un patrón de moaré par
 
 
 
-{{< p5-iframe sketch="/showcase/sketches/kinegram/kinegram.js" width="525" height="525" >}}
+{{< p5-iframe sketch="showcase/sketches/kinegram/kinegram.js" width="525" height="525" >}}
 
 **3. Conclusión**
 
