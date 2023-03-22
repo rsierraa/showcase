@@ -1,0 +1,50 @@
+<!doctype html><html lang=en-us dir=ltr><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="Ejercicio 5: Pixelador # 1. Introducción
+Aunque a primera vista parece qeu pixelar una imagen sea un desproposito, lo cierto es que tiene aplicaciones muy utiles. Un ejemplo de esto es la censura por pixelado que busca ocultar información; Otro uso bastante popular es el de reducir el tamaño de las imagenes a cambio de perder algo de calidad para poder enviar archivos no tan pesados.
+2. Solución
+A continuación se pixela el mismo video utilizando dos tecnicas diferentes: Color averaging y Spatial coherence:"><meta name=theme-color content="#FFFFFF"><meta name=color-scheme content="light dark"><meta property="og:title" content><meta property="og:description" content="Ejercicio 5: Pixelador # 1. Introducción
+Aunque a primera vista parece qeu pixelar una imagen sea un desproposito, lo cierto es que tiene aplicaciones muy utiles. Un ejemplo de esto es la censura por pixelado que busca ocultar información; Otro uso bastante popular es el de reducir el tamaño de las imagenes a cambio de perder algo de calidad para poder enviar archivos no tan pesados.
+2. Solución
+A continuación se pixela el mismo video utilizando dos tecnicas diferentes: Color averaging y Spatial coherence:"><meta property="og:type" content="article"><meta property="og:url" content="https://visualcomputing.github.io/showcase/docs/Visual-Illusions/Spatial-Coherence/Pixelator-demo/"><meta property="article:section" content="docs"><meta property="article:modified_time" content="2023-03-15T07:09:37-05:00"><title>Pixelator Demo | Showcase Template</title><link rel=manifest href=/showcase/manifest.json><link rel=icon href=/showcase/favicon.png type=image/x-icon><link rel=stylesheet href=/showcase/book.min.4b35fed0bea034bbc19c89c71e14b73fb9c68cfcc586b9382adfb9b7b103ba06.css integrity="sha256-SzX+0L6gNLvBnInHHhS3P7nGjPzFhrk4Kt+5t7EDugY=" crossorigin=anonymous><script defer src=/showcase/flexsearch.min.js></script>
+<script defer src=/showcase/en.search.min.3a8d658c77eb93c7f12a2b8af49a700131e474f288eefb605d9fa61576dbe5a7.js integrity="sha256-Oo1ljHfrk8fxKiuK9JpwATHkdPKI7vtgXZ+mFXbb5ac=" crossorigin=anonymous></script></head><body dir=ltr><input type=checkbox class="hidden toggle" id=menu-control>
+<input type=checkbox class="hidden toggle" id=toc-control><main class="container flex"><aside class=book-menu><div class=book-menu-content><nav><h2 class=book-brand><a class="flex align-center" href=/showcase/><span>Showcase Template</span></a></h2><div class=book-search><input type=text id=book-search-input placeholder=Search aria-label=Search maxlength=64 data-hotkeys=s/><div class="book-search-spinner hidden"></div><ul id=book-search-results></ul></div><ul><li><input type=checkbox id=section-7e4921a1bef13fc49e19193dc1bfdc8f class=toggle>
+<label for=section-7e4921a1bef13fc49e19193dc1bfdc8f class="flex justify-between"><a href=/showcase/docs/members/>Members</a></label><ul><li><a href=/showcase/docs/members/Adrian/>Adrian</a></li><li><a href=/showcase/docs/members/Jaime/>Jaime</a></li><li><a href=/showcase/docs/members/Rodrigo/>Rodrigo</a></li></ul></li><li class=book-section-flat><a href=/showcase/docs/Visual-Illusions/>Visual Illusions</a><ul><li><input type=checkbox id=section-99e4a0d55300f831d740177d881e77f4 class=toggle>
+<label for=section-99e4a0d55300f831d740177d881e77f4 class="flex justify-between"><a href=/showcase/docs/Visual-Illusions/Coloring/>Coloring</a></label><ul><li><a href=/showcase/docs/Visual-Illusions/Coloring/Color-blindness/>Color Blindness</a></li></ul></li><li><input type=checkbox id=section-bd03a1ba8998ae8c9df2b933d511e416 class=toggle>
+<label for=section-bd03a1ba8998ae8c9df2b933d511e416 class="flex justify-between"><a href=/showcase/docs/Visual-Illusions/Mach-Bands/>Mach Bands</a></label><ul><li><a href=/showcase/docs/Visual-Illusions/Mach-Bands/Terrain-with-Perlin-noise/>Terrain With Perlin Noise</a></li></ul></li><li><input type=checkbox id=section-7a7081fda5df7dbf85b6d879015de52b class=toggle>
+<label for=section-7a7081fda5df7dbf85b6d879015de52b class="flex justify-between"><a href=/showcase/docs/Visual-Illusions/Masking/>Masking</a></label><ul><li><a href=/showcase/docs/Visual-Illusions/Masking/Visual-masking/>Visual Masking</a></li><li><a href=/showcase/docs/Visual-Illusions/Masking/Convolution-masks/>Convolution Masks</a></li></ul></li><li><input type=checkbox id=section-8f4e9ca131433d238729d21435de5a65 class=toggle checked>
+<label for=section-8f4e9ca131433d238729d21435de5a65 class="flex justify-between"><a href=/showcase/docs/Visual-Illusions/Spatial-Coherence/>Spatial Coherence</a></label><ul><li><a href=/showcase/docs/Visual-Illusions/Spatial-Coherence/Pixelator-demo/ class=active>Pixelator Demo</a></li></ul></li></ul></li></ul></nav><script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script></div></aside><div class=book-page><header class=book-header><div class="flex align-center justify-between"><label for=menu-control><img src=/showcase/svg/menu.svg class=book-icon alt=Menu></label>
+<strong>Pixelator Demo</strong>
+<label for=toc-control><img src=/showcase/svg/toc.svg class=book-icon alt="Table of Contents"></label></div><aside class="hidden clearfix"><nav id=TableOfContents><ul><li><ul><li><a href=#ejercicio-5-pixelador>Ejercicio 5: Pixelador</a></li></ul></li></ul></nav></aside></header><article class=markdown><h2 id=ejercicio-5-pixelador>Ejercicio 5: Pixelador
+<a class=anchor href=#ejercicio-5-pixelador>#</a></h2><p><strong>1. Introducción</strong></p><p>Aunque a primera vista parece qeu pixelar una imagen sea un desproposito, lo cierto es que tiene aplicaciones muy utiles. Un ejemplo de esto es la censura por pixelado que busca ocultar información; Otro uso bastante popular es el de reducir el tamaño de las imagenes a cambio de perder algo de calidad para poder enviar archivos no tan pesados.</p><p><strong>2. Solución</strong></p><p>A continuación se pixela el mismo video utilizando dos tecnicas diferentes: Color averaging y Spatial coherence:</p><p>Spatial Coherence</p><iframe id=pixelatorDemoSC style=width:800px;height:400px srcdoc="
+        <!DOCTYPE html>
+        <html>
+          <head>
+            <script src=https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.6.0/p5.min.js></script>
+            <script src=https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.6.0/addons/p5.sound.min.js></script>
+            
+            
+            
+            
+            
+            <script src=/showcase/sketches/pixelatorDemoSC.js></script>
+          </head>
+          <body>
+          </body>
+        </html>
+      "></iframe><p>Color Averaging</p><iframe id=pixelatorDemoCA style=width:800px;height:400px srcdoc="
+        <!DOCTYPE html>
+        <html>
+          <head>
+            <script src=https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.6.0/p5.min.js></script>
+            <script src=https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.6.0/addons/p5.sound.min.js></script>
+            
+            
+            
+            
+            
+            <script src=/showcase/sketches/pixelatorDemoCA.js></script>
+          </head>
+          <body>
+          </body>
+        </html>
+      "></iframe><p><strong>3. Conclusión</strong></p><p>Utilizando el metodo de coherencia espacial se conservan unos colores mas vivos respecto a su contraparte de promediado de color. Por lo que desde nuestra opinión de ignorantes, consideramos al metodo de coherencia espacial como el mejor entre estos.</p></article><footer class=book-footer><div class="flex flex-wrap justify-between"><div><a class="flex align-center" href=https://github.com/visualcomputing/showcase/commit/d910cf7f098b891ea943b9ebc319e44e16ca0296 title='Last modified by Donret | March 15, 2023' target=_blank rel=noopener><img src=/showcase/svg/calendar.svg class=book-icon alt=Calendar>
+<span>March 15, 2023</span></a></div></div><script>(function(){function e(e){const t=window.getSelection(),n=document.createRange();n.selectNodeContents(e),t.removeAllRanges(),t.addRange(n)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){if(window.getSelection().toString())return;e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script></footer><div class=book-comments></div><label for=menu-control class="hidden book-menu-overlay"></label></div><aside class=book-toc><div class=book-toc-content><nav id=TableOfContents><ul><li><ul><li><a href=#ejercicio-5-pixelador>Ejercicio 5: Pixelador</a></li></ul></li></ul></nav></div></aside></main></body></html>
