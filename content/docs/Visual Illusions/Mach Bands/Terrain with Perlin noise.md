@@ -14,7 +14,7 @@ En los videojuegos y ambientes virtuales se suele procurar optimizar los recurso
 
 En esta solución se porpone la generacion aleatoria de terreno para un simple simulador de vuelo.
 
-{{< p5-iframe sketch="showcase/sketches/terrain/terrainGenerator.js" width="800" height="800" >}}
+{{< p5-iframe sketch="/showcase/sketches/terrain/terrainGenerator.js" width="800" height="800" >}}
 
 El usuario jwdunn1 propone la generación de un mundo inspirado en el popular videojuego Minecraft haciendo uso del ruido Perlin:
 
