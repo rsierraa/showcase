@@ -12,7 +12,3 @@ Grupo de trabajo por:
 #Jaime Andres Macias Sanchez.
 
 #Rodrigo Sierra Agredo.
-
-{{< hint info >}}
-asdagsdgas
-{{< /hint >}}
