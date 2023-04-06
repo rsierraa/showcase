@@ -28,6 +28,12 @@ https://color.adobe.com/create/color-accessibility
 {{< /hint >}}
 
 
+Dentro de los Web Content Accesibilty Guidelines 2.0, se describe los distintos parámetros que son estándar para la inclusividad a la hora de hacer contenido web, y dentro de estos se justifican los niveles de contraste entre colores, entendiéndose un mayor contraste como una implementación más inclusiva para personas con condiciones visuales direrentes. Una mejor explicación de los contrastes se encuentra en:
+
+
+{{< hint info >}}
+https://palett.es/accessibility
+{{< /hint >}}
 
 **3. Solución**
 
