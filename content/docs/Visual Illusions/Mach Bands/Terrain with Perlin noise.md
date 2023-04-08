@@ -15,7 +15,8 @@ En los videojuegos y ambientes virtuales se suele procurar optimizar los recurso
 En esta solución se propone la generacion aleatoria de terreno para un simulador de vuelo simple.
 
 /*
-{{< details "Código" [open] >}}
+{{< details "Código" >}}
+<pre>
 var cols, rows;
 var scl = 20;
 var w = 1400;
@@ -85,6 +86,7 @@ function draw() {
   }
   
 }
+</pre>
 {{< /details >}}
 */
 
