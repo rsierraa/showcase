@@ -21,7 +21,7 @@ Un script que permite cargar una imagen para que sea procesada por el kernel de 
 
 De igual forma, se presentan los histogramas RGB de la imagen cargada.
 
-/*
+
 {{< details "Código" >}}
 
     function bound(color) {
@@ -490,7 +490,7 @@ De igual forma, se presentan los histogramas RGB de la imagen cargada.
 
     </pre>
 {{< /details >}}
-*/
+
 
 <iframe src="/showcase/sketches/convolution/kernels.html" style="border:none;width:750px;height:700px;"></iframe>
 
