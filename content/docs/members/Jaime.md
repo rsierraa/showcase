@@ -7,4 +7,4 @@ weight: 2
 
 ## Info
 
-Estudiante de décimo semestre, interesado en el deportes tolima.
+Estudiante de décimo semestre, interesado en el test.
