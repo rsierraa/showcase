@@ -23,7 +23,7 @@ De igual forma, se presentan los histogramas RGB de la imagen cargada.
 
 /*
 {{< details "Código" >}}
-
+    <pre>
     function bound(color) {
         if (color > 255)
             return 255
@@ -488,7 +488,7 @@ De igual forma, se presentan los histogramas RGB de la imagen cargada.
 
     }
 
-
+    </pre>
 {{< /details >}}
 */
 
