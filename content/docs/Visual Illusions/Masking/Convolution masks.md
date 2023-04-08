@@ -22,7 +22,7 @@ Un script que permite cargar una imagen para que sea procesada por el kernel de 
 De igual forma, se presentan los histogramas RGB de la imagen cargada.
 
 /*
-{{< details "Código"  >}}
+{{< details "Código" [open] >}}
 
     function bound(color) {
         if (color > 255)
@@ -488,7 +488,7 @@ De igual forma, se presentan los histogramas RGB de la imagen cargada.
 
     }
 
-
+    </pre>
 {{< /details >}}
 */
 
