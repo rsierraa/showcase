@@ -14,6 +14,7 @@ En los videojuegos y ambientes virtuales se suele procurar optimizar los recurso
 
 En esta solución se propone la generacion aleatoria de terreno para un simulador de vuelo simple.
 
+/*
 {{< details "Código" [open] >}}
 var cols, rows;
 var scl = 20;
@@ -85,6 +86,7 @@ function draw() {
   
 }
 {{< /details >}}
+*/
 
 El avión se incuye como un archivo .OBJ, que es un estándar para representar diseños en 3D a partir de sus coordenadas.
 
