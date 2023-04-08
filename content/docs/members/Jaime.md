@@ -7,4 +7,4 @@ weight: 2
 
 ## Info
 
-Estudiante de décimo semestre, interesado en el testeo.
+<br>**Intereses:** Teoría de números, teoría de lenguajes formales, teoría de autómatas y matemáticas.
