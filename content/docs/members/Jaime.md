@@ -3,10 +3,8 @@ weight: 2
 ---
 
 
-#Jaime Andres Macias Sanchez
+#Adrian Felipe Castillo Gonzales
 
 ## Info
 
-Pedro perez
-
-Estudiante de ingenieria de sistemas en la universidad nacional.
+Estudiante de octavo semestre, interesado en chicas anime.
