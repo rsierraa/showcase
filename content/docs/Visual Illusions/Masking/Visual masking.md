@@ -67,6 +67,9 @@ function draw() {
 </pre>
 {{< /details >}}
 
+<br>
+<br>
+
 {{< p5-iframe sketch="/showcase/sketches/kinegram/kinegram.js" width="525" height="525" >}}
 
 **4. Conclusiones y trabajo a futuro**

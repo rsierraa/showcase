@@ -491,6 +491,8 @@ De igual forma, se presentan los histogramas RGB de la imagen cargada.
     </pre>
 {{< /details >}}
 
+<br>
+<br>
 
 <iframe src="/showcase/sketches/convolution/kernels.html" style="border:none;width:750px;height:700px;"></iframe>
 
