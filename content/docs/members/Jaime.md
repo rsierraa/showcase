@@ -7,4 +7,4 @@ weight: 2
 
 ## Info
 
-Estudiante de octavo semestre, interesado en chicas anime.
+Estudiante de octavo semestre, interesado en el deportes tolima.
