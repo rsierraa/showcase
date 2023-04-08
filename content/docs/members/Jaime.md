@@ -7,4 +7,6 @@ weight: 2
 
 ## Info
 
+Pedro
+
 Estudiante de ingenieria de sistemas en la universidad nacional.
