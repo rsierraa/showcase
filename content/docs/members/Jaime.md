@@ -3,8 +3,8 @@ weight: 2
 ---
 
 
-#Adrian Felipe Castillo Gonzales
+#Jaime Andres Macias Sanchez
 
 ## Info
 
-Estudiante de octavo semestre, interesado en el deportes tolima.
+Estudiante de décimo semestre, interesado en el deportes tolima.
