@@ -7,6 +7,6 @@ weight: 2
 
 ## Info
 
-Pedro
+Pedro perez
 
 Estudiante de ingenieria de sistemas en la universidad nacional.
