@@ -37,7 +37,87 @@ https://palett.es/accessibility
 
 **3. Solución**
 
-Para ayudar a esta población, se desarrollo una aplicacion que haciendo uso de la posición del cursor mide los niveles RGB del pixel al que se esta señalando, de tal forma que cuando el usuario oprima click, un audio le indicara de que color es esa zona. 
+Para ayudar a esta población, se desarrolló una aplicación que, haciendo uso de la posición del cursor, determina el Hue de pixel al que se esta señalando, de tal forma que cuando el usuario oprima click sobre algún punto de la imagen, un audio le indicara qué color prima en esa zona; entre amarillo, azul, rojo y verde.
+
+El Hue es una representación de colores de un solo valor, que corresponde al ángulo que apunta al color representado, organizado en un círculo que agrupa los colores primarios y sus intersecciones (de 0 a 360 grados), entonces el programa obtiene este valor y lo ubica según el intervalo del círculo en el que entre.
+
+{{< hint info >}}
+Más información sobre la representación Hue de los colores en:
+https://en.wikipedia.org/wiki/Hue
+{{< /hint >}}
+
+
+{{< details "Código" >}}
+<pre>
+// Carga la imagen y los sonidos a utilizar
+function preload() {
+  img = loadImage('/showcase/sketches/colorBlind/daltonismo.jpeg');
+  soundFormats('mp3');
+  azulSound = loadSound('/showcase/sketches/colorBlind/azul');
+  rojoSound = loadSound('/showcase/sketches/colorBlind/rojo');
+  verdeSound = loadSound('/showcase/sketches/colorBlind/verde');
+  amarilloSound = loadSound('/showcase/sketches/colorBlind/amarillo');
+}
+
+// Configura el canvas y define la función que se ejecuta al hacer clic en él
+function setup() {
+  let cnv = createCanvas(700, 700); // Crea un canvas con las dimensiones indicadas
+  img.resize(700, 700); // Redimensiona la imagen para que coincida con las dimensiones del canvas
+  cnv.mousePressed(canvasPressed); // Asigna la función canvasPressed() para ser llamada cada vez que se haga clic en el canvas
+}
+
+// Función que reproduce un sonido dependiendo del color que se ha detectado en el canvas
+function getColor(colorHue) {
+  colorHue = hue(colorHue); // Obtiene el valor de "hue" del color detectado
+  
+  // Si el valor de "hue" del color detectado está entre 0 y 12, se reproduce el sonido "rojo"
+  if (colorHue > 0 && colorHue < 12) {
+    rojoSound.play();
+    return;
+  }
+  
+  // Si el valor de "hue" del color detectado está entre 33 y 67, se reproduce el sonido "amarillo"
+  if (colorHue > 33 && colorHue < 67) {
+    amarilloSound.play();
+    return;
+  }
+  
+  // Si el valor de "hue" del color detectado está entre 67 y 165, se reproduce el sonido "verde"
+  if (colorHue > 67 && colorHue < 165) {
+    verdeSound.play();
+    return;
+  }
+  
+  // Si el valor de "hue" del color detectado está entre 165 y 255, se reproduce el sonido "azul"
+  if (colorHue > 165 && colorHue < 255) {
+    azulSound.play();
+    return;
+  }
+  
+  // Si el valor de "hue" del color detectado es mayor a 311, se reproduce el sonido "rojo"
+  if (colorHue > 311) {
+    rojoSound.play();
+    return;
+  }
+}
+
+// Función que se llama al hacer clic en el canvas
+function canvasPressed(){
+    getColor(detectedColor);
+}
+
+function draw() {
+  background(220); // Establece el color de fondo
+  
+  let pix = img.get(mouseX, mouseY); // Obtiene el color del pixel que se encuentra en la posición del mouse
+  
+  image(img, 0, 0, width, height); // Muestra la imagen en el canvas
+  
+  // Convierte el color del pixel obtenido en el paso anterior a un objeto de color de p5.js
+  detectedColor = color(red(pix), green(pix), blue(pix));
+}
+</pre>
+{{< /details >}}
 
 en esta solución solo se tienen en cuenta los colores rojo, verde, azul y amarillo. Pues los tipos mas comunes de daltonismo involucran los colores dichos colores.
 
