@@ -30,8 +30,10 @@ En conclusión, los cinegramas y los patrones de Moaré han sido objeto de explo
 A continuación se hace uso de una rejilla que presenta un patrón de moaré para reproducir un cinegrama que anima el aleteo de unas aves.
 
 /*
-{{< details "Código" [open] >}}
+{{< details "Código"  >}}
 
+
+<pre>
 let pic
 let x=0
 function preload() {
