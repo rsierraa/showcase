@@ -3,7 +3,7 @@ let playing = false;
 
 function setup() {
   createCanvas(800, 400);
-  video = createVideo("/showcase/sketches/homer.mp4", vidLoaded);
+  video = createVideo("/showcase/sketches/Colombia.mp4", vidLoaded);
   video.size(800,400);
 
 }

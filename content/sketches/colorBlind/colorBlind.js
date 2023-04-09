@@ -12,7 +12,7 @@ function preload() {
 
 // Configura el canvas y define la función que se ejecuta al hacer clic en él
 function setup() {
-  let cnv = createCanvas(1000, 1000); // Crea un canvas con las dimensiones indicadas
+  let cnv = createCanvas(600, 600); // Crea un canvas con las dimensiones indicadas
   img.resize(700, 700); // Redimensiona la imagen para que coincida con las dimensiones del canvas
   cnv.mousePressed(canvasPressed); // Asigna la función canvasPressed() para ser llamada cada vez que se haga clic en el canvas
 }
