@@ -494,11 +494,14 @@ De igual forma, se presentan los histogramas RGB de la imagen cargada.
     </pre>
 {{< /details >}}
 
+
+{{< hint [info] >}}
+
 ## Explicación breve
 
 >La función processImage procesa la imagen utilizando una matriz de convolución (kernel) y devuelve una imagen transformada. La función applyLightness ajusta la luminosidad de la imagen según el valor de entrada del usuario. También dibuja un histograma para cada componente RGB de la imagen transformada. Ambas funciones utilizan la función bound para garantizar que los valores RGB estén dentro del rango [0, 255]. La matriz de convolución y la definición de luminosidad se obtienen a través de selecciones de usuario en la página web.
 >
-
+{{< /hint >}}
 
 **4. Conclusión y trabajo a futuro/**
 
