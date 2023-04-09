@@ -34,7 +34,7 @@ function draw() {
   for (var y = 0; y < rows; y++) {
     var xoff = 10;
     for (var x = 0; x < cols; x++) {
-      terrain[x][y] = map(noise(xoff, yoff), 0, 1, -200, 55); // mapear el valor del ruido a un valor entre -200 y 100
+      terrain[x][y] = map(noise(xoff, yoff), 0, 1, -200, 55); // mapear el valor del ruido a un valor entre -200 y 55
       xoff += 0.2;
     }
     yoff += 0.2;
