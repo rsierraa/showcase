@@ -73,6 +73,8 @@ function draw() {
 </pre>
 {{< /details >}}
 
+
+
 ## Explicación breve
 
 >Primero, se declara una variable llamada "pic" y se establece una variable "x" en cero. Luego, en la función "preload()", se carga una imagen llamada "kin.png" en la variable "pic" desde la ruta "/showcase/sketches/kinegram/kin.png".
