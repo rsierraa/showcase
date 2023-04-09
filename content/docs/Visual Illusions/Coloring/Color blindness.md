@@ -21,12 +21,20 @@ Ser daltonico, no solo significa ver los colores de forma diferente. De hecho, p
 
 **2. Antecedentes y Trabajo Previo**
 
-Desde el desarrollo de software y las interfaces gráficas, existen  implementaciones para intentar comprender los distintos tipos de daltonismo, y de esta manera ayudar a escoger paletas de colores que sean "seguras" desde este punto de vista; es decir, que sean legibles para las personas que poseen esta condición. Un ejemplo de estas herramientas es esta, de Adobe, para obtener paletas "Color Blind Safe":
+Desde el desarrollo de software y las interfaces gráficas, existen  implementaciones para intentar comprender los distintos tipos de daltonismo, y de esta manera ayudar a escoger paletas de colores que sean "seguras" desde este punto de vista; es decir, que sean legibles para las personas que poseen esta condición. 
+
+Un ejemplo de estas herramientas es esta, de Adobe, para obtener paletas "Color Blind Safe":
 
 {{< hint info >}}
 https://color.adobe.com/create/color-accessibility
 {{< /hint >}}
 
+Otro ejemplo son algunas extensiones de Google, como Dalton y Daltonize, que aplican transformaciones a imágenes en vivo del navegador para hacerlas más comprensibles para las personas con condiciones de Daltonismo.
+
+{{< hint info >}}
+Dalton
+https://chrome.google.com/webstore/detail/colorblind-dalton-for-goo/afcafnelafcgjinkaeohkalmfececool?hl=en
+{{< /hint >}}
 
 Dentro de los Web Content Accesibilty Guidelines 2.0, se describe los distintos parámetros que son estándar para la inclusividad a la hora de hacer contenido web, y dentro de estos se justifican los niveles de contraste entre colores, entendiéndose un mayor contraste como una implementación más inclusiva para personas con condiciones visuales direrentes. Una mejor explicación de los contrastes se encuentra en:
 
