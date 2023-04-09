@@ -73,7 +73,7 @@ function draw() {
 </pre>
 {{< /details >}}
 
-{{< hint [info] >}}
+{{< hint  >}}
 
 ## Explicación breve
 

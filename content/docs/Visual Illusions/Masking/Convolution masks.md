@@ -495,7 +495,7 @@ De igual forma, se presentan los histogramas RGB de la imagen cargada.
 {{< /details >}}
 
 
-{{< hint [info] >}}
+{{< hint  >}}
 
 ## Explicación breve
 
