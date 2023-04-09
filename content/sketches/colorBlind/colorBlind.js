@@ -27,12 +27,12 @@ function getColor(colorHue) {
     return;
   }
    // Si el valor de "hue" del color detectado está entre 30 y 60, se reproduce el sonido "naranja"
-   if (colorHue > 30 && colorHue < 60) {
+   if (colorHue > 30 && colorHue < 50) {
     naranjaSound.play();
     return;
   } 
   // Si el valor de "hue" del color detectado está entre 33 y 67, se reproduce el sonido "amarillo"
-  if (colorHue > 60 && colorHue < 90) {
+  if (colorHue > 50 && colorHue < 70) {
     amarilloSound.play();
     return;
   }
