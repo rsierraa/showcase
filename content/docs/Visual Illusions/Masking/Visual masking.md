@@ -73,6 +73,15 @@ function draw() {
 </pre>
 {{< /details >}}
 
+## Explicación breve
+
+>Primero, se declara una variable llamada "pic" y se establece una variable "x" en cero. Luego, en la función "preload()", se carga una imagen llamada "kin.png" en la variable "pic" desde la ruta "/showcase/sketches/kinegram/kin.png".
+>
+>En la función "setup()", se crea un lienzo de 400x400 píxeles y se establece la velocidad de cuadros en 15.
+>
+>En la función "draw()", se establece la imagen de fondo como la imagen cargada en "pic". Luego, se crea un patrón de Moiré a través de un bucle "for" que dibuja líneas verticales en intervalos regulares, desplazándose a la derecha con una cantidad determinada por la variable "x". La variable "j" controla la posición de cada línea, y el valor de "x" se incrementa gradualmente para crear el efecto de movimiento. Cuando el valor de "x" excede los 550 píxeles, se reinicia a cero para reiniciar el patrón.
+>
+
 
 
 **4. Conclusiones y trabajo a futuro**
