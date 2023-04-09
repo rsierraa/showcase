@@ -1,6 +1,6 @@
 // Carga la imagen y los sonidos a utilizar
 function preload() {
-  img = loadImage('/showcase/sketches/colorBlind/daltonismo.jpeg');
+  img = loadImage('/showcase/sketches/colorBlind/mushies.jpg');
   soundFormats('mp3');
   azulSound = loadSound('/showcase/sketches/colorBlind/azul');
   rojoSound = loadSound('/showcase/sketches/colorBlind/rojo');
