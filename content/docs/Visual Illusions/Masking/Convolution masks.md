@@ -8,6 +8,7 @@ weight: 3
 Un kernel, matriz de convolución o máscara es una matriz diminuta utilizada en el procesamiento de imágenes para la detección de bordes, el relieve, la nitidez y otras funciones. Para ello se utiliza la convolución entre el núcleo y una imagen. Dicho de otro modo, el núcleo o kernel es la función que determina cómo cada píxel de la imagen de salida se ve afectado por los píxeles vecinos (incluido él mismo) de la imagen de entrada.
 
 ![Animación de convolución](https://en.wikipedia.org/wiki/Kernel_(image_processing)#/media/File:2D_Convolution_Animation.gif)
+<img src="https://en.wikipedia.org/wiki/Kernel_(image_processing)#/media/File:2D_Convolution_Animation.gif" alt="Animación de convolución">
 
 **2. Antecedentes y  trabajo previo**
 
