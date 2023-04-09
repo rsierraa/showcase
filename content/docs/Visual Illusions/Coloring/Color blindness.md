@@ -131,10 +131,45 @@ en esta solución solo se tienen en cuenta los colores rojo, verde, azul y amari
 
 {{< p5-iframe sketch="/showcase/sketches/colorBlind/colorBlind.js"  width="525" height="525" >}}
 
-**4. Conclusiones**
+
+**4. Trabajo futuro**
+Algunas alternativas desde hardware y/o software fueron analizadas en la investigación de este trabajo, y son descritas a continuación.
+
+Gafas EnChroma - EnChroma es una compañía que produce gafas para personas con daltonismo. Estas gafas utilizan una tecnología especial de lentes para mejorar la visión del color de las personas con daltonismo. La compañía está constantemente investigando y desarrollando nuevas tecnologías para mejorar sus gafas. Recientemente lanzaron una nueva versión de sus gafas que pueden ayudar a las personas con daltonismo a ver los colores más vívidamente. 
+
+
+{{< hint info >}}
+Referencia: https://enchroma.com/
+{{< /hint >}}
+
+Vino Vision - Vino Vision es una aplicación móvil que ayuda a las personas con daltonismo a identificar los colores de los vinos. La aplicación utiliza una cámara para escanear la etiqueta de una botella de vino y proporciona información sobre el color, acidez y otras características del vino. La aplicación está diseñada para ayudar a las personas con daltonismo a disfrutar de las experiencias de degustación de vinos. 
+
+
+{{< hint info >}}
+Referencia: https://vinovision.co/
+{{< /hint >}}
+
+Spectral Edge - Spectral Edge es una empresa de software que está desarrollando tecnología para mejorar la visión del color de las personas con daltonismo. Su tecnología utiliza aprendizaje automático para analizar imágenes y ajustar los colores para que sean más distinguibles para las personas con daltonismo. La empresa está trabajando actualmente en la integración de su tecnología en varios productos, como cámaras y teléfonos inteligentes. 
+
+
+{{< hint info >}}
+Referencia: https://spectraledge.co.uk/
+{{< /hint >}}
+
+
+Color Blind Pal - Color Blind Pal es una aplicación móvil que ayuda a las personas con daltonismo a identificar los colores en su entorno. La aplicación utiliza una cámara para capturar una imagen y luego proporciona información sobre los colores en la imagen. La aplicación también incluye una rueda de colores que se puede utilizar para identificar colores específicos. Color Blind Pal está diseñada para ayudar a las personas con daltonismo a navegar por su entorno e identificar colores en la vida cotidiana. 
+
+
+{{< hint info >}}
+Referencia: https://www.colorblindpal.com/
+{{< /hint >}}
+
+**5. Conclusiones**
 
 En la actualidad la humanidad consume toneladas de contenido digital y no seria justo excluir a la población que padece de daltonismo cuando 
 la misma digitalización ofrece alternativas. Aunque exiten herramientas mas efectivas como la conversion de color en tiempo real, todas
 las herramientas de inclusión son utiles, incluso una tan rustica como la presentada.
 
-Desde el punto de vista del software es posible, aunque no revertir la condición médica del daltonismo o tratarla de alguna manera; brindar asistencia para lidiar con esta desde el lado de las interfaces de usuario. Esto, bien sea teniendo en cuenta los parámetros necesarios para diseñar productos amigables con esta condición, o implementando asistencia al usuario para identificar colores, como es el caso de la implementación presentada en este informe,
+Desde el punto de vista del software es posible, aunque no revertir la condición médica del daltonismo o tratarla de alguna manera; brindar asistencia para lidiar con esta desde el lado de las interfaces de usuario. Esto, bien sea teniendo en cuenta los parámetros necesarios para diseñar productos amigables con esta condición, o implementando asistencia al usuario para identificar colores, como es el caso de la implementación presentada en este informe.
+
+Otras alternativas que fueron analizadas en el informe sí podrían considerarse soluciones; no solo modelos o herramientas de reconocimiento sino de corrección del problema; desde el punto de vista del hardware y/o software. Esto es impresionante y deja ver lo positivo que es vivir en una época de avance tecnológico como la que estamos viviendo hoy en día.
