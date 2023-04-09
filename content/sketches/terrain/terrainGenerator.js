@@ -51,3 +51,18 @@ function draw() {
   fill(0,0,0,150); // definir un color negro semitransparente para el modelo del avión
   rotateZ(55); // rotar el modelo del avión alrededor del eje Z
   model(airplane, true);
+  pop();
+  fill(200, 200, 200, 150);
+  translate(-w / 2, -h / 2);
+  for (var y = 0; y < rows - 1; y++) {
+    noStroke();
+    beginShape(TRIANGLE_STRIP);
+    for (var x = 0; x < cols; x++) {
+        fill(100,0,255,150)
+      vertex(x * scl, y * scl, terrain[x][y]);
+      vertex(x * scl, (y + 1) * scl, terrain[x][y + 1]);
+    }
+    endShape();
+  }
+  
+}
