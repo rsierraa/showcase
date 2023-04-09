@@ -6,6 +6,8 @@ function preload() {
   rojoSound = loadSound('/showcase/sketches/colorBlind/rojo');
   verdeSound = loadSound('/showcase/sketches/colorBlind/verde');
   amarilloSound = loadSound('/showcase/sketches/colorBlind/amarillo');
+  naranjaSound = loadSound('/showcase/sketches/colorBlind/Naranja');
+  negroSound = loadSound('/showcase/sketches/colorBlind/Negro');
 }
 
 // Configura el canvas y define la función que se ejecuta al hacer clic en él
@@ -20,31 +22,35 @@ function getColor(colorHue) {
   colorHue = hue(colorHue); // Obtiene el valor de "hue" del color detectado
   
   // Si el valor de "hue" del color detectado está entre 0 y 12, se reproduce el sonido "rojo"
-  if (colorHue > 0 && colorHue < 12) {
+  if (colorHue > 0 && colorHue < 30) {
     rojoSound.play();
     return;
   }
-  
+   // Si el valor de "hue" del color detectado está entre 30 y 60, se reproduce el sonido "naranja"
+   if (colorHue > 30 && colorHue < 60) {
+    naranjaSound.play();
+    return;
+  } 
   // Si el valor de "hue" del color detectado está entre 33 y 67, se reproduce el sonido "amarillo"
-  if (colorHue > 33 && colorHue < 67) {
+  if (colorHue > 60 && colorHue < 90) {
     amarilloSound.play();
     return;
   }
   
   // Si el valor de "hue" del color detectado está entre 67 y 165, se reproduce el sonido "verde"
-  if (colorHue > 67 && colorHue < 165) {
+  if (colorHue > 90 && colorHue < 180) {
     verdeSound.play();
     return;
   }
   
   // Si el valor de "hue" del color detectado está entre 165 y 255, se reproduce el sonido "azul"
-  if (colorHue > 165 && colorHue < 255) {
+  if (colorHue > 210 && colorHue < 270) {
     azulSound.play();
     return;
   }
   
   // Si el valor de "hue" del color detectado es mayor a 311, se reproduce el sonido "rojo"
-  if (colorHue > 311) {
+  if (colorHue > 330) {
     rojoSound.play();
     return;
   }
