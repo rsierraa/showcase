@@ -4,7 +4,7 @@ Aunque a primera vista parece qeu pixelar una imagen sea un desproposito, lo cie
 A continuación se pixela el mismo video utilizando dos tecnicas diferentes: Color averaging y Spatial coherence:"><meta name=theme-color content="#FFFFFF"><meta name=color-scheme content="light dark"><meta property="og:title" content><meta property="og:description" content="Ejercicio 5: Pixelador # 1. Introducción
 Aunque a primera vista parece qeu pixelar una imagen sea un desproposito, lo cierto es que tiene aplicaciones muy utiles. Un ejemplo de esto es la censura por pixelado que busca ocultar información; Otro uso bastante popular es el de reducir el tamaño de las imagenes a cambio de perder algo de calidad para poder enviar archivos no tan pesados.
 2. Solución
-A continuación se pixela el mismo video utilizando dos tecnicas diferentes: Color averaging y Spatial coherence:"><meta property="og:type" content="article"><meta property="og:url" content="https://visualcomputing.github.io/showcase/docs/Visual-Illusions/Spatial-Coherence/Pixelator-demo/"><meta property="article:section" content="docs"><meta property="article:modified_time" content="2023-03-15T07:09:37-05:00"><title>Pixelator Demo | Showcase Template</title><link rel=manifest href=/showcase/manifest.json><link rel=icon href=/showcase/favicon.png type=image/x-icon><link rel=stylesheet href=/showcase/book.min.4b35fed0bea034bbc19c89c71e14b73fb9c68cfcc586b9382adfb9b7b103ba06.css integrity="sha256-SzX+0L6gNLvBnInHHhS3P7nGjPzFhrk4Kt+5t7EDugY=" crossorigin=anonymous><script defer src=/showcase/flexsearch.min.js></script>
+A continuación se pixela el mismo video utilizando dos tecnicas diferentes: Color averaging y Spatial coherence:"><meta property="og:type" content="article"><meta property="og:url" content="https://visualcomputing.github.io/showcase/docs/Visual-Illusions/Spatial-Coherence/Pixelator-demo/"><meta property="article:section" content="docs"><meta property="article:modified_time" content="2023-04-09T23:39:40-05:00"><title>Pixelator Demo | Showcase Template</title><link rel=manifest href=/showcase/manifest.json><link rel=icon href=/showcase/favicon.png type=image/x-icon><link rel=stylesheet href=/showcase/book.min.4b35fed0bea034bbc19c89c71e14b73fb9c68cfcc586b9382adfb9b7b103ba06.css integrity="sha256-SzX+0L6gNLvBnInHHhS3P7nGjPzFhrk4Kt+5t7EDugY=" crossorigin=anonymous><script defer src=/showcase/flexsearch.min.js></script>
 <script defer src=/showcase/en.search.min.3a8d658c77eb93c7f12a2b8af49a700131e474f288eefb605d9fa61576dbe5a7.js integrity="sha256-Oo1ljHfrk8fxKiuK9JpwATHkdPKI7vtgXZ+mFXbb5ac=" crossorigin=anonymous></script></head><body dir=ltr><input type=checkbox class="hidden toggle" id=menu-control>
 <input type=checkbox class="hidden toggle" id=toc-control><main class="container flex"><aside class=book-menu><div class=book-menu-content><nav><h2 class=book-brand><a class="flex align-center" href=/showcase/><span>Showcase Template</span></a></h2><div class=book-search><input type=text id=book-search-input placeholder=Search aria-label=Search maxlength=64 data-hotkeys=s/><div class="book-search-spinner hidden"></div><ul id=book-search-results></ul></div><ul><li><input type=checkbox id=section-7e4921a1bef13fc49e19193dc1bfdc8f class=toggle>
 <label for=section-7e4921a1bef13fc49e19193dc1bfdc8f class="flex justify-between"><a href=/showcase/docs/members/>Members</a></label><ul><li><a href=/showcase/docs/members/Adrian/>Adrian</a></li><li><a href=/showcase/docs/members/Jaime/>Jaime</a></li><li><a href=/showcase/docs/members/Rodrigo/>Rodrigo</a></li></ul></li><li class=book-section-flat><a href=/showcase/docs/Visual-Illusions/>Visual Illusions</a><ul><li><input type=checkbox id=section-99e4a0d55300f831d740177d881e77f4 class=toggle>
@@ -46,5 +46,141 @@ A continuación se pixela el mismo video utilizando dos tecnicas diferentes: Col
           <body>
           </body>
         </html>
-      "></iframe><p><strong>3. Conclusión</strong></p><p>Utilizando el metodo de coherencia espacial se conservan unos colores mas vivos respecto a su contraparte de promediado de color. Por lo que desde nuestra opinión de ignorantes, consideramos al metodo de coherencia espacial como el mejor entre estos.</p></article><footer class=book-footer><div class="flex flex-wrap justify-between"><div><a class="flex align-center" href=https://github.com/visualcomputing/showcase/commit/d910cf7f098b891ea943b9ebc319e44e16ca0296 title='Last modified by Donret | March 15, 2023' target=_blank rel=noopener><img src=/showcase/svg/calendar.svg class=book-icon alt=Calendar>
-<span>March 15, 2023</span></a></div></div><script>(function(){function e(e){const t=window.getSelection(),n=document.createRange();n.selectNodeContents(e),t.removeAllRanges(),t.addRange(n)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){if(window.getSelection().toString())return;e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script></footer><div class=book-comments></div><label for=menu-control class="hidden book-menu-overlay"></label></div><aside class=book-toc><div class=book-toc-content><nav id=TableOfContents><ul><li><ul><li><a href=#ejercicio-5-pixelador>Ejercicio 5: Pixelador</a></li></ul></li></ul></nav></div></aside></main></body></html>
+      "></iframe><p>En la implementación de Pixelación por Promedio de Color (Color Averaging), el código divide la pantalla en cuadrados de 50 píxeles de ancho y alto y toma el color promedio de los píxeles dentro de cada cuadrado. El color promedio se usa para pintar el cuadrado correspondiente. La división de la pantalla se realiza mediante un bucle for anidado que recorre los píxeles de la imagen original. Este método de pixelación es sencillo pero efectivo para lograr un efecto de imagen pixelada.</p><details><summary>Código</summary><div class=markdown-inner><pre>
+// declarar las variables del video y playing
+let video;
+let playing = false;
+
+function setup() {
+  // crear un lienzo con dimensiones de 800x400 píxeles
+  createCanvas(800, 400);
+  
+  // crear un objeto Video y cargar Colombia.mp4
+  video = createVideo("/showcase/sketches/Colombia.mp4", vidLoaded);
+  // establecer las dimensiones del video para que coincidan con el lienzo
+  video.size(800,400);
+}
+
+function vidLoaded(){
+  // establecer el video para que se reproduzca en bucle indefinidamente
+  video.loop();
+  // establecer la velocidad de reproducción del video a 1x
+  video.speed(1);
+  // ocultar el elemento de video para que no sea visible en la página
+  video.hide();
+}
+
+function draw() {
+  // establecer el color de fondo en blanco
+  background(220);
+  // mostrar el video en el lienzo en coordenadas (0, 0)
+  image(video, 0, 0);
+  // deshabilitar el trazo para las formas siguientes
+  noStroke();
+  // cargar los datos de píxeles para el video
+  video.loadPixels();
+
+  // recorrer el lienzo en incrementos de 10 píxeles en ambas direcciones x e y
+  for (let x = 0; x < width; x += 10){
+    for (let y = 0; y < height; y += 10){
+      // calcular el índice del píxel en el arreglo de píxeles
+      let index = (x + (y * width)) * 4;
+      // obtener los valores rojo, verde y azul para el píxel
+      let r = video.pixels[index + 0];
+      let g = video.pixels[index + 1];
+      let b = video.pixels[index + 2];
+      // establecer la opacidad del píxel a 100
+      let a = 100;
+      
+      // establecer el relleno del rectángulo al color promedio del píxel
+      fill(r, g, b, a);
+      // dibujar un rectángulo en la posición actual
+      square (x, y, 50)
+    }
+  }
+}
+
+function mousePressed() {
+  // si el video se está reproduciendo, ponerlo en pausa
+  if (playing) {
+    video.pause();
+  } 
+  // de lo contrario, hacer que el video se reproduzca en bucle
+  else {
+    video.loop();
+  }
+  // cambiar el valor de playing a su opuesto
+  playing = !playing;
+}
+</pre></div></details><p>En la implementación de Coherencia Espacial (Spatial Coherence), el código también divide la pantalla en cuadrados de 50 píxeles de ancho y alto, pero esta vez se suma un valor constante a cada componente RGB (rojo, verde, azul) del color de los píxeles dentro de cada cuadrado antes de pintar el cuadrado correspondiente. Esto hace que los colores de los cuadrados sean un poco más brillantes que en la imagen original. El objetivo de agregar el valor constante es aumentar la coherencia espacial en la imagen, es decir, hacer que los colores de los cuadrados sean más similares entre sí y estén más en armonía. Esto puede ser útil para crear una sensación de unidad en la imagen pixelada.</p><details><summary>Código</summary><div class=markdown-inner><pre>
+let video;
+let playing = false;
+
+function setup() {
+  // Crea un canvas de 800x400
+  createCanvas(800, 400);
+  
+  // Carga el video Colombia.mp4
+  video = createVideo("/showcase/sketches/Colombia.mp4", vidLoaded);
+  
+  // Establece el tamaño del video en 800x400
+  video.size(800,400);
+}
+
+function vidLoaded(){
+  // Establece el loop del video
+  video.loop();
+  
+  // Establece la velocidad del video en 1 (velocidad normal)
+  video.speed(1);
+  
+  // Oculta el video
+  video.hide();
+}
+
+function draw() {
+  // Establece el fondo del canvas en gris claro
+  background(220);
+  
+  // Dibuja el video en el canvas
+  image(video, 0, 0);
+  
+  // Elimina el borde de los cuadrados que se van a dibujar
+  noStroke();
+  
+  // Carga los píxeles del video
+  video.loadPixels();
+
+  // Recorre el canvas de 10 en 10 píxeles
+  for (let x = 0; x < width; x += 10){
+    for (let y = 0; y < height; y += 10){
+      
+      // Calcula el índice de los píxeles en el arreglo
+      let index = (x + (y * width)) * 4;
+      
+      // Obtiene los valores RGB de los píxeles
+      let r = video.pixels[index + 0] + 30;
+      let g = video.pixels[index + 1] + 30;
+      let b = video.pixels[index + 2] + 30;
+      
+      // Establece la opacidad de los cuadrados en 100
+      let a = 100;
+           
+      // Dibuja un cuadrado en la posición actual con los colores obtenidos
+      fill(r, g, b, a);
+      square (x, y, 50)
+    }
+  }
+}
+
+function mousePressed() {
+  // Pausa o reanuda el video al hacer clic en el mouse
+  if (playing) {
+    video.pause();
+  } else {
+    video.loop();
+  }
+  playing = !playing;
+}
+</pre></div></details><p><strong>3. Conclusión</strong></p><p>Utilizando el metodo de coherencia espacial se conservan unos colores mas vivos respecto a su contraparte de promediado de color. Por lo que desde nuestra opinión de ignorantes, consideramos al metodo de coherencia espacial como el mejor entre estos.</p></article><footer class=book-footer><div class="flex flex-wrap justify-between"><div><a class="flex align-center" href=https://github.com/visualcomputing/showcase/commit/1230c0aee62ce8f9d992a08edaaa9b4e2c52b117 title='Last modified by Rod | April 10, 2023' target=_blank rel=noopener><img src=/showcase/svg/calendar.svg class=book-icon alt=Calendar>
+<span>April 10, 2023</span></a></div></div><script>(function(){function e(e){const t=window.getSelection(),n=document.createRange();n.selectNodeContents(e),t.removeAllRanges(),t.addRange(n)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){if(window.getSelection().toString())return;e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script></footer><div class=book-comments></div><label for=menu-control class="hidden book-menu-overlay"></label></div><aside class=book-toc><div class=book-toc-content><nav id=TableOfContents><ul><li><ul><li><a href=#ejercicio-5-pixelador>Ejercicio 5: Pixelador</a></li></ul></li></ul></nav></div></aside></main></body></html>
