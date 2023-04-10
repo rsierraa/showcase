@@ -7,6 +7,12 @@ weight: 2
 
 El Ruido Perlin es una función matemática que utiliza la interpolación entre un gran número de gradientes de vectores precalculados para crear un valor que varía de forma pseudoaleatoria en el espacio o en el tiempo. Se asemeja al ruido blanco y se utiliza con frecuencia en imágenes generadas por ordenador para simular la variabilidad de muchos tipos de fenómenos, dándoles un aspecto más realista.
 
+Perlin Noise es un método matemático para generar fluctuaciones aleatorias pero muy contiguas, por lo que, a diferencia de cualquier tipo de función aleatoria, es una manera muy apta para generar terrenos aleatorios que, aunque aleatorios, requieren una forma coherente.
+
+{{< hint info >}}
+Lee más sobre el Ruido Perlin y otros métodos de generación de terreno aleatorio en:
+https://medium.com/nerd-for-tech/generating-digital-worlds-using-perlin-noise-5d11237c29e9
+{{< /hint >}}
 
 **2. Solución**
 
