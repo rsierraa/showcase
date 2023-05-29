@@ -6,6 +6,15 @@ weight: 2
 1. Implement other coloring brightness tools such as HSV value V, HSL lightness L or Component average.
 2. Implement texture tinting by mixing color and texel interpolated data.
 
+
+**1. Introducción y contexto**
+
+El mapeo de texturas en transportar una textura (una imágen) a una superficie dibujada. Usualmente, para cubrir de la manera más eficiente distintas formas geométricas, se utiliza el mapeo a triángulos, por lo que se implementa la interpolación con coordenadas baricéntricas para lograr tal efecto.
+
+{{< hint info >}}
+https://www.scratchapixel.com/lessons/3d-basic-rendering/ray-tracing-rendering-a-triangle/barycentric-coordinates.html#:~:text=In%20other%20words%2C%20barycentric%20coordinates,normal%20at%20the%20intersection%20point.
+{{< /hint >}}
+
 ## Brightness & Tinting
 
 El ejercicio se compone de dos partes: La primera consiste en la visualización de la iluminación de la imagen y la segunda es la aplicación de tinting sobre la imagen utilizando diferentes blending modes.
