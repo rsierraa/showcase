@@ -42,7 +42,7 @@ Los blending modes aplicados son los mismos vistos en **Coloring**.
 * **Color Pickers**: para seleccionar los colores que se aplicarán en el tinting
 
 
-{{< p5-iframe sketch="/VisualComputing/sketches/shaders/BrightnessTinting/brightness.js" width="800" height="650" lib1="https://cdn.jsdelivr.net/gh/VisualComputing/p5.treegl/p5.treegl.js">}}
+{{< p5-iframe sketch="/showcase/sketches/shaders/texturing/brightness.js" width="800" height="650" lib1="https://cdn.jsdelivr.net/gh/VisualComputing/p5.treegl/p5.treegl.js">}}
 
 {{<details "Sketch Code">}}
 
@@ -74,8 +74,8 @@ let video_on;
 
 function preload() {
 
-  brightnessShader = readShader('/VisualComputing/docs/shaders/fragments/brightness.frag', { varyings: Tree.texcoords2 });
-  tintingShader = readShader('/VisualComputing/docs/shaders/fragments/tinting.frag', { varyings: [Tree.texcoords2 | Tree.color4] });
+  brightnessShader = readShader('/showcase/docs/shaders/fragments/brightness.frag', { varyings: Tree.texcoords2 });
+  tintingShader = readShader('/showcase/docs/shaders/fragments/tinting.frag', { varyings: [Tree.texcoords2 | Tree.color4] });
 
 }
 
@@ -95,7 +95,7 @@ function setup() {
   lmselect.option('tinting', 5);
   lmselect.selected('original');
 
-  img = loadImage('/VisualComputing/docs/shaders/resources/fire_breathing.png');
+  img = loadImage('/showcase/docs/shaders/resources/fire_breathing.png');
   input = createFileInput(handleFile);
 
   colorA = "red";
@@ -153,11 +153,11 @@ function setup() {
   video_on = createCheckbox('default video', false);
   video_on.changed(() => {
     if (video_on.checked()) {
-      img = createVideo(['/VisualComputing/docs/shaders/resources/video0.mp4']);
+      img = createVideo(['/showcase/docs/shaders/resources/video0.mp4']);
       img.hide();
       img.loop();
     } else {
-      img = loadImage('/VisualComputing/docs/shaders/resources/fire_breathing.png');
+      img = loadImage('/showcase/docs/shaders/resources/fire_breathing.png');
       img.hide();
       img.pause();
     }
