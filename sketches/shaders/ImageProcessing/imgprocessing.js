@@ -68,10 +68,10 @@ let bslider;
 let video_on;
 
 function preload() {
-  maskShader = readShader('/VisualComputing/docs/shaders/fragments/mask.frag', { varyings: Tree.texcoords2 });
-  magnifierShader = readShader('/VisualComputing/docs/shaders/fragments/magnifier.frag', { varyings: Tree.texcoords2 });
-  brightnessShader = readShader('/VisualComputing/docs/shaders/fragments/brightness.frag', { varyings: Tree.texcoords2 });
-  tintingShader = readShader('/VisualComputing/docs/shaders/fragments/tinting.frag', { varyings: [Tree.texcoords2 | Tree.color4] });
+  maskShader = readShader('/showcase/docs/shaders/fragments/mask.frag', { varyings: Tree.texcoords2 });
+  magnifierShader = readShader('/showcase/docs/shaders/fragments/magnifier.frag', { varyings: Tree.texcoords2 });
+  brightnessShader = readShader('/showcase/docs/shaders/fragments/brightness.frag', { varyings: Tree.texcoords2 });
+  tintingShader = readShader('/showcase/docs/shaders/fragments/tinting.frag', { varyings: [Tree.texcoords2 | Tree.color4] });
 }
 
 function setup() {
@@ -99,7 +99,7 @@ function setup() {
   kselect.option('user defined', 9);
   kselect.selected('identity');
   
-  img = loadImage('/VisualComputing/docs/shaders/resources/download.png');
+  img = loadImage('/showcase/docs/shaders/resources/download.png');
   input = createFileInput(handleFile);
 
   r0c0 = createInput('', 'number');
@@ -228,11 +228,11 @@ function setup() {
   video_on = createCheckbox('default video', false);
   video_on.changed(() => {
     if (video_on.checked()) {
-      img = createVideo(['/VisualComputing/docs/shaders/resources/video1.mp4']);
+      img = createVideo(['/showcase/docs/shaders/resources/video1.mp4']);
       img.hide();
       img.loop();
     } else {
-      img = loadImage('/VisualComputing/docs/shaders/resources/download.png');
+      img = loadImage('/showcase/docs/shaders/resources/download.png');
       img.hide();
       img.pause();
     }
