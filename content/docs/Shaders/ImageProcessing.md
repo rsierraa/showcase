@@ -42,7 +42,7 @@ Las funcionalidades de brightness y tinting son implementadas usando los shaders
 * **Color Pickers**: para seleccionar los colores que se aplicarán en el tinting
 * **Inputs (user defined convolution)**: lista de inputs numéricos para que el usuario ingrese matriz de convolución.
 
-{{< p5-iframe sketch="/VisualComputing/sketches/shaders/ImageProcessing/imgprocessing.js" width="750" height="700" lib1="https://cdn.jsdelivr.net/gh/VisualComputing/p5.treegl/p5.treegl.js">}}
+{{< p5-iframe sketch="/showcase/sketches/shaders/ImageProcessing/imgprocessing.js" width="750" height="700" lib1="https://cdn.jsdelivr.net/gh/VisualComputing/p5.treegl/p5.treegl.js">}}
 
 {{<details "Sketch Code">}}
 
