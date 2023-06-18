@@ -24,8 +24,8 @@ let video_on;
 
 function preload() {
 
-  brightnessShader = readShader('/showcase/docs/shaders/fragments/brightness.frag', { varyings: Tree.texcoords2 });
-  tintingShader = readShader('/showcase/docs/shaders/fragments/tinting.frag', { varyings: [Tree.texcoords2 | Tree.color4] });
+  brightnessShader = readShader('/showcase/docs/Shaders/fragments/brightness.frag', { varyings: Tree.texcoords2 });
+  tintingShader = readShader('/showcase/docs/Shaders/fragments/tinting.frag', { varyings: [Tree.texcoords2 | Tree.color4] });
 
 }
 
@@ -45,7 +45,7 @@ function setup() {
   lmselect.option('tinting', 5);
   lmselect.selected('original');
 
-  img = loadImage('/showcase/docs/shaders/resources/fire_breathing.png');
+  img = loadImage('/showcase/docs/Shaders/resources/fire_breathing.png');
   input = createFileInput(handleFile);
 
   colorA = "red";
@@ -103,11 +103,11 @@ function setup() {
   video_on = createCheckbox('default video', false);
   video_on.changed(() => {
     if (video_on.checked()) {
-      img = createVideo(['/showcase/docs/shaders/resources/video0.mp4']);
+      img = createVideo(['/showcase/docs/Shaders/resources/video0.mp4']);
       img.hide();
       img.loop();
     } else {
-      img = loadImage('/showcase/docs/shaders/resources/fire_breathing.png');
+      img = loadImage('/showcase/docs/Shaders/resources/fire_breathing.png');
       img.hide();
       img.pause();
     }
