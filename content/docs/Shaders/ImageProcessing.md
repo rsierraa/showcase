@@ -11,6 +11,26 @@ Implement an image / video processing app supporting different masks, including 
 
 ## Image Processing
 
+## 1. Introducción
+
+La combinación del procesamiento de imágenes y la texturización ha abierto un amplio abanico de posibilidades creativas y técnicas en el campo del procesamiento de imágenes. Al aplicar técnicas de texturización a las imágenes, es posible transformar su apariencia, añadir detalles realistas y crear efectos visuales impactantes. El uso de texturas en el procesamiento de imágenes permite generar resultados más complejos y estéticamente atractivos, al tiempo que proporciona una mayor flexibilidad y control sobre la apariencia final de las imágenes procesadas. En esta introducción, exploraremos cómo la combinación del procesamiento de imágenes y la texturización está revolucionando el campo y abriendo nuevas posibilidades en términos de creatividad y aplicaciones prácticas.
+
+## 2. Antecedentes y trabajo previo
+
+El uso de texturas en el procesamiento de imágenes tiene sus raíces en el campo de la informática gráfica y la generación de gráficos por computadora. Desde sus inicios, se ha reconocido la importancia de las texturas para añadir detalles y realismo a las imágenes generadas digitalmente.
+
+En el ámbito de la generación de gráficos por computadora, los avances en técnicas de texturización han permitido simular materiales, como madera, metal, tela y piedra, de manera realista. Estas técnicas se basan en la aplicación de imágenes texturales a las superficies 3D, lo que añade información de color, brillo y otros atributos visuales.
+
+En el campo del procesamiento de imágenes, la aplicación de texturas ha sido utilizada para una amplia gama de tareas, como la restauración y mejora de imágenes, la segmentación de objetos y la síntesis de imágenes. Por ejemplo, el uso de texturas puede ayudar a mejorar la calidad visual de una imagen mediante técnicas de filtrado y suavizado, o se puede utilizar para generar imágenes sintéticas con apariencia natural y coherente.
+
+El trabajo previo en el uso de texturas en el procesamiento de imágenes ha explorado diferentes enfoques y algoritmos para lograr resultados efectivos. Esto incluye técnicas de mapeo de texturas, donde se asignan texturas predefinidas a regiones específicas de una imagen, y técnicas más avanzadas como la síntesis de texturas, donde se generan nuevas texturas a partir de ejemplos o mediante métodos procedurales.
+
+Además, el desarrollo de técnicas de texturización no se limita únicamente a la generación de texturas estáticas. Se han explorado enfoques dinámicos donde las texturas pueden cambiar y adaptarse a lo largo del tiempo, lo que permite crear efectos animados y generar imágenes en movimiento más interesantes y atractivas.
+
+En resumen, el uso de texturas en el procesamiento de imágenes ha sido ampliamente estudiado y utilizado en la informática gráfica y el procesamiento de imágenes. Los avances en este campo han permitido mejorar la calidad visual de las imágenes, agregar detalles realistas y abrir nuevas posibilidades creativas en la generación y manipulación de contenido visual.
+
+## 3. Solución
+
 En esta aplicación se utilizan cuatro shaders. Uno para el masking, otro para el magnifier y el de iluminación y tinturado ya vistos en **Texturing**.
 
 El masking se implementó para matrices 3x3 y 5x5. 
@@ -726,3 +746,31 @@ void main() {
 }
 ```
 {{</details >}}
+
+## 4. Conclusiones
+
+1. El procesamiento de imágenes es un campo de investigación amplio y en constante evolución que tiene aplicaciones en diversas áreas, como la medicina, la robótica, la seguridad, entre otras.
+
+2. Los avances en tecnología y hardware han permitido el desarrollo de algoritmos más complejos y eficientes para el procesamiento de imágenes, lo que ha llevado a mejoras significativas en la calidad y precisión de los resultados.
+
+3. La segmentación de imágenes es una tarea fundamental en el procesamiento de imágenes, que consiste en dividir una imagen en regiones o objetos de interés. Existen diferentes enfoques y técnicas para llevar a cabo la segmentación, como métodos basados en bordes, umbralización, regiones y aprendizaje automático.
+
+4. El análisis de texturas es otro aspecto importante en el procesamiento de imágenes, que se utiliza para extraer información sobre las características y propiedades de las texturas presentes en una imagen. Esto puede ser útil en aplicaciones como reconocimiento de objetos, detección de anomalías y análisis de calidad de imagen.
+
+5. El procesamiento de imágenes médicas es un área de investigación destacada, donde se utilizan técnicas de procesamiento de imágenes para el diagnóstico, seguimiento y tratamiento de enfermedades. Esto incluye la segmentación de estructuras anatómicas, la detección de tumores y la mejora de la calidad de las imágenes médicas.
+
+Llegamos entonces a que el procesamiento de imágenes es una disciplina fascinante y en constante desarrollo, con aplicaciones en una amplia gama de campos. Los avances en algoritmos y tecnología continúan impulsando la mejora de la calidad, precisión y eficiencia de los resultados obtenidos en el procesamiento de imágenes.
+
+## 5. Trabajo a futuro
+
+En cuanto al trabajo futuro en el campo del procesamiento de imágenes, se pueden considerar las siguientes áreas de enfoque y desarrollo:
+
+1. Mejora de algoritmos y técnicas existentes: Continuar investigando y desarrollando algoritmos más eficientes y precisos para tareas como segmentación de imágenes, análisis de texturas, reconocimiento de objetos y detección de anomalías. Esto implica explorar enfoques basados en inteligencia artificial, aprendizaje profundo y redes neuronales convolucionales para obtener resultados más robustos y de mayor calidad.
+
+2. Procesamiento de imágenes en tiempo real: El desarrollo de algoritmos y técnicas de procesamiento de imágenes que permitan realizar análisis en tiempo real es un área de interés creciente. Esto es especialmente relevante en aplicaciones como la conducción autónoma, la realidad aumentada y la vigilancia, donde se requiere un procesamiento rápido y eficiente de imágenes en tiempo real.
+
+3. Procesamiento de imágenes en entornos no controlados: El procesamiento de imágenes en entornos no controlados, como imágenes tomadas en condiciones de iluminación variable, ruido o distorsión, plantea desafíos adicionales. Investigar y desarrollar técnicas que sean robustas y adaptables a diversas condiciones ambientales permitirá mejorar el rendimiento del procesamiento de imágenes en situaciones del mundo real.
+
+4. Integración de datos multimodales: La integración de diferentes fuentes de datos, como imágenes, texto y sensores, es una tendencia emergente en el procesamiento de imágenes. El desarrollo de técnicas que permitan aprovechar y fusionar información de múltiples modalidades abrirá nuevas oportunidades en áreas como la interpretación y comprensión de escenas complejas.
+
+5. Aplicaciones específicas en campos como la medicina y la agricultura: Continuar explorando aplicaciones específicas del procesamiento de imágenes en campos como la medicina y la agricultura. Esto puede incluir el desarrollo de herramientas de diagnóstico asistido por computadora, análisis de imágenes de cultivos para mejorar la eficiencia agrícola, detección temprana de enfermedades y monitoreo de la salud.
