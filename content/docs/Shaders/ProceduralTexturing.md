@@ -40,8 +40,8 @@ let texselect;
 let tex;
 
 function preload() {
-    cabberShader = readShader('/VisualComputing/docs/shaders/fragments/cabber.frag', { matrices: Tree.NONE, varyings: Tree.NONE });
-    mosaicShader = readShader('/VisualComputing/docs/shaders/fragments/mosaic.frag', { matrices: Tree.NONE, varyings: Tree.NONE });
+    cabberShader = readShader('/VisualComputing/docs/Shaders/fragments/cabber.frag', { matrices: Tree.NONE, varyings: Tree.NONE });
+    mosaicShader = readShader('/VisualComputing/docs/Shaders/fragments/mosaic.frag', { matrices: Tree.NONE, varyings: Tree.NONE });
   }
 
 function setup() {
