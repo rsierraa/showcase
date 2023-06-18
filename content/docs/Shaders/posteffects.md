@@ -1,5 +1,5 @@
 ---
-title: Texturing
+title: Post Effects
 weight: 2
 ---
 ## Exercise
