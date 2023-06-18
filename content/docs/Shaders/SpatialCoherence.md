@@ -6,11 +6,13 @@ weight: 6
 1. Implement your own source dataset and a mechanism to select different images from it.
 2. Implement a pixelator in software that doesn’t use spatial coherence and compare the results with those obtained here.
 
-## Introduction
+## Spatial Coherence
+
+## 1. Introducción
 
 La coherencia espacial se refiere a la propiedad de que los píxeles o elementos de una imagen o gráfico cercanos entre sí tienden a tener características o valores similares. Esto significa que existe una correlación o similitud en los datos espacialmente adyacentes.
 
-## Background
+## 2. Antecedentes y trabajo previo
 
 La técnica de "spatial coherence" o "coherencia espacial" tiene sus antecedentes en el campo de la informática gráfica y el procesamiento de imágenes. A continuación, se presentan algunos de los antecedentes relevantes en el uso de esta técnica:
 
@@ -22,7 +24,7 @@ Culling y técnicas de optimización en gráficos 3D: En el ámbito de los gráf
 
 Filtros de imágenes: Los filtros espaciales aplicados a imágenes, como los filtros de suavizado o enfoque, se basan en la coherencia espacial para lograr resultados visuales deseables. Estos filtros utilizan operaciones que consideran los valores de los píxeles vecinos para calcular los nuevos valores de los píxeles en la imagen filtrada.
 
-## Solution, spatial coherence
+## 3. Solución [Spatial coherence]
 
 En este ejercicio, se realiza la pixelación de imágenes utilizando la técnica de coherencia espacial. El proceso se lleva a cabo mediante un shader llamado "pixelator", el cual recibe la imagen original y la resolución deseada. Al especificar una resolución de 30, por ejemplo, la imagen pixelada tendrá píxeles de baja resolución (grandes) en cada lado, totalizando 30 píxeles.
 
@@ -182,7 +184,7 @@ void main() {
 ```
 {{</details >}}
 
-## Solution, average Color 
+## 3.1. Solución [Average Color]
 
 A continuación se presenta la implementación realizada en software (no en hardware) para la pixelación sin utilizar coherencia espacial. En este enfoque, en lugar de seleccionar un pixel arbitrario de una sección para pintar el píxel de baja resolución correspondiente, se realiza un promedio de los colores de todos los píxeles en dicha sección y se utiliza ese valor para pintar el píxel de baja resolución.
 
@@ -296,7 +298,7 @@ function handleFile(file) {
 ```
 {{</details >}}
 
-## Conclusions
+## 4. Conclusiones
 
 El uso de la técnica de coherencia espacial en el procesamiento de imágenes y gráficos tiene varias conclusiones destacadas:
 
@@ -310,7 +312,7 @@ Reducción de artefactos y ruido: Al aplicar la coherencia espacial en la manipu
 
 Flexibilidad y adaptabilidad: La técnica de coherencia espacial es aplicable en una variedad de contextos y algoritmos. Puede utilizarse en diferentes etapas del procesamiento de imágenes y gráficos, y se puede adaptar según las necesidades específicas de cada aplicación. Esto la convierte en una herramienta versátil para optimizar y mejorar diversos aspectos del procesamiento visual.
 
-## Future work
+## 5. Trabajo a futuro
 
 La técnica de coherencia espacial tiene un amplio potencial en diversas áreas y se pueden vislumbrar varias aplicaciones futuras. Algunas de ellas son:
 
