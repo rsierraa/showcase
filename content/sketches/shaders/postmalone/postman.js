@@ -4,14 +4,8 @@ let noiseScale, noiseStrength, godraysIntensity;
 
 function preload() {
   imageTexture = loadImage('/showcase/content/sketches/shaders/postmalone/post.jpg');
-  // noiseWarpShader = loadShader('/showcase/content/docs/Shaders/fragments/noiseWarpShader.frag');
-  // godraysShader = loadShader('/showcase/content/docs/Shaders/fragments/godraysShader.frag');
-  noiseWarpShader = loadShader('/showcase/content/docs/Shaders/fragments/noiseWarpShader.frag', () => {
-    console.log('Noise warp shader loaded');
-  });
-  godraysShader = loadShader('/showcase/content/docs/Shaders/fragments/godraysShader.frag', () => {
-    console.log('Godrays shader loaded');
-  });
+  noiseWarpShader = loadShader('/showcase/content/docs/Shaders/fragments/noiseWarpShader.frag');
+  godraysShader = loadShader('/showcase/content/docs/Shaders/fragments/godraysShader.frag');
 }
 
 function setup() {
@@ -48,7 +42,7 @@ function setup() {
 function draw() {
   image_pg.background(0);
   image_pg.textureMode(NORMAL);
-  image_pg.shader();
+  image_pg.shader(noiseWarpShader);
   image_pg.image(imageTexture, -width / 2, -height / 2, width, height);
 
   noiseWarp_pg.shader(noiseWarpShader);
@@ -62,5 +56,5 @@ function draw() {
   godrays_pg.rect(-width / 2, -height / 2, width, height);
 
   // Display final result
-  image(godrays_pg, 0, 0);
+  image(godrays_pg, 0, 0, width, height);
 }
