@@ -17,6 +17,8 @@ https://www.scratchapixel.com/lessons/3d-basic-rendering/ray-tracing-rendering-a
 
 ## 2. Antecedentes y trabajo previo
 
+Buenas noches.
+
 ## 3. Solución [Brightness & Tinting]
 
 
