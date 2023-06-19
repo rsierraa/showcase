@@ -60,7 +60,7 @@ function draw() {
 
 
   // Display final result
-  image(noiseWarp_pg, 0, 0);
+  image(noiseWarp_pg, 0, 0, width, height);
 }
 
 // 777
