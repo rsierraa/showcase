@@ -54,6 +54,8 @@ function draw() {
   noiseWarpShader.setUniform('resolution', [width, height]);
   noiseWarp_pg.emitResolution(noiseWarpShader);
 
+  console.log(noiseWarp_pg);
+
 
 //   godraysShader.setUniform('image', noiseWarp_pg);
 //   godraysShader.setUniform('resolution', [width, height]);
