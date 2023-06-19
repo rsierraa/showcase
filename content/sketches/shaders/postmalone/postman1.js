@@ -60,7 +60,7 @@ function draw() {
 
 
   // Display final result
-  image(imageTexture, 0, 0, width, height);
+  image(imageTexture, 0, 0);
 }
 
 // 77
