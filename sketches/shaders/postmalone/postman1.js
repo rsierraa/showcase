@@ -47,20 +47,20 @@ function preload() {
   }
 
 function draw() {
-  image_pg.background(0);
-  image_pg.textureMode(NORMAL);
-  image_pg.shader();
-  image_pg.image(imageTexture, -width / 2, -height / 2, width, height);
+//   image_pg.background(0);
+//   image_pg.textureMode(NORMAL);
+//   image_pg.shader();
+//   image_pg.image(imageTexture, -width / 2, -height / 2, width, height);
 
-  noiseWarp_pg.shader(noiseWarpShader);
-  noiseWarpShader.setUniform('image', image_pg);
-  noiseWarpShader.setUniform('resolution', [width, height]);
-  noiseWarp_pg.rect(-width / 2, -height / 2, width, height);
+//   noiseWarp_pg.shader(noiseWarpShader);
+//   noiseWarpShader.setUniform('image', image_pg);
+//   noiseWarpShader.setUniform('resolution', [width, height]);
+//   noiseWarp_pg.rect(-width / 2, -height / 2, width, height);
 
-  godrays_pg.shader(godraysShader);
-  godraysShader.setUniform('image', noiseWarp_pg);
-  godraysShader.setUniform('resolution', [width, height]);
-  godrays_pg.rect(-width / 2, -height / 2, width, height);
+//   godrays_pg.shader(godraysShader);
+//   godraysShader.setUniform('image', noiseWarp_pg);
+//   godraysShader.setUniform('resolution', [width, height]);
+//   godrays_pg.rect(-width / 2, -height / 2, width, height);
 
   // Display final result
   image(imageTexture, 0, 0);
