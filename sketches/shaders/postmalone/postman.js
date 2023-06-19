@@ -55,6 +55,6 @@ function draw() {
   godraysShader.setUniform('resolution', [width, height]);
   godrays_pg.rect(-width / 2, -height / 2, width, height);
 
-  // Display final resultadoo
+  // Display final resultado
   image(godrays_pg, 0, 0);
 }
