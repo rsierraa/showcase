@@ -4,8 +4,10 @@ let noiseScale, noiseStrength, godraysIntensity;
 
 function preload() {
   imageTexture = loadImage('/showcase/content/sketches/shaders/postmalone/post.jpg');
-  noiseWarpShader = createShader(vertexShader, noiseWarpFragmentShader);
-  godraysShader = createShader(vertexShader, godraysFragmentShader);
+  noiseWarpShader = readShader('/showcase/content/docs/Shaders/fragments/noiseWarpShader.frag', { varyings: Tree.texcoords2 });
+  godraysShader = readShader('/showcase/content/docs/Shaders/fragments/godraysShader.frag', { varyings: Tree.texcoords2 });
+  //noiseWarpShader = readShader('/showcase/content/docs/Shaders/fragments/noiseWarpShader.frag');
+  //godraysShader = readShader('/showcase/content/docs/Shaders/fragments/godraysShader.frag');
 }
 
 function setup() {
@@ -13,6 +15,16 @@ function setup() {
   image_pg = createGraphics(width, height, WEBGL);
   noiseWarp_pg = createGraphics(width, height, WEBGL);
   godrays_pg = createGraphics(width, height, WEBGL);
+
+  noiseWarp_pg = createGraphics(width, height, WEBGL);
+  noiseWarp_pg.colorMode(RGB, 1);
+  noiseWarp_pg.textureMode(NORMAL);
+  noiseWarp_pg.shader(noiseWarpShader);
+  
+  godrays_pg = createGraphics(width, height, WEBGL);
+  godrays_pg.colorMode(RGB, 1);
+  godrays_pg.textureMode(NORMAL);
+  godrays_pg.shader(godraysShader);
   
   noiseScale = createSlider(0.001, 0.1, 0.01, 0.001);
   noiseScale.position(width - 120, 10);
@@ -42,7 +54,7 @@ function setup() {
 function draw() {
   image_pg.background(0);
   image_pg.textureMode(NORMAL);
-  image_pg.shader();
+  //image_pg.shader();
   image_pg.image(imageTexture, -width / 2, -height / 2, width, height);
   
   noiseWarp_pg.shader(noiseWarpShader);
@@ -58,85 +70,3 @@ function draw() {
   // Display final result
   image(godrays_pg, 0, 0);
 }
-
-// Fragment shader code
-const noiseWarpFragmentShader = `
-#ifdef GL_ES
-precision mediump float;
-#endif
-
-uniform sampler2D image;
-uniform vec2 resolution;
-uniform float noiseScale;
-uniform float noiseStrength;
-
-varying vec2 vTexCoord;
-
-// 2D Random
-float random(vec2 p) {
-  return fract(sin(dot(p, vec2(12.9898, 78.233))) * 43758.5453);
-}
-
-void main() {
-  vec2 uv = vTexCoord.xy;
-  vec2 p = uv * resolution.xy / noiseScale;
-
-  float distortion = noiseStrength * (random(p) - 0.5);
-  vec2 distortedUV = uv + vec2(distortion);
-
-  vec4 color = texture2D(image, distortedUV);
-  gl_FragColor = color;
-}`;
-
-const godraysFragmentShader = `
-#ifdef GL_ES
-precision mediump float;
-#endif
-
-uniform sampler2D image;
-uniform vec2 resolution;
-uniform float godraysIntensity;
-
-varying vec2 vTexCoord;
-
-void main() {
-  vec2 uv = vTexCoord.xy;
-  vec2 screenPos = uv * resolution;
-  vec2 delta = 1.0 / resolution;
-
-  float weight = 1.0;
-  vec4 sum = vec4(0.0);
-  vec4 currentColor = texture2D(image, uv);
-
-  for (int i = 0; i < 50; i++) {
-    screenPos -= delta * 0.1;
-    vec4 sample = texture2D(image, screenPos);
-    sample *= weight;
-    sum += sample;
-    weight *= godraysIntensity;
-  }
-
-  vec4 godrayColor = sum * 0.05;
-  vec4 finalColor = mix(currentColor, godrayColor, godraysIntensity);
-
-  gl_FragColor = finalColor;
-}`;
-
-// Vertex shader code
-const vertexShader = `
-#ifdef GL_ES
-precision highp float;
-#endif
-
-attribute vec3 aPosition;
-attribute vec2 aTexCoord;
-
-uniform mat4 uModelViewMatrix;
-uniform mat4 uProjectionMatrix;
-
-varying vec2 vTexCoord;
-
-void main() {
-  vTexCoord = aTexCoord;
-  gl_Position = uProjectionMatrix * uModelViewMatrix * vec4(aPosition, 1.0);
-}`;
