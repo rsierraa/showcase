@@ -4,8 +4,10 @@ let noiseScale, noiseStrength, godraysIntensity;
 
 function preload() {
   imageTexture = loadImage('/showcase/sketches/shaders/postmalone/post.jpg');
-  noiseWarpShader = loadShader('/showcase/docs/Shaders/fragments/noiseWarpShader.vert', '/showcase/docs/Shaders/fragments/noiseWarpShader.frag');
-  godraysShader = loadShader('/showcase/docs/Shaders/fragments/godraysShader.vert', '/showcase/docs/Shaders/fragments/godraysShader.frag');
+  // noiseWarpShader = loadShader('/showcase/docs/Shaders/fragments/noiseWarpShader.frag');
+  // godraysShader = loadShader('/showcase/docs/Shaders/fragments/godraysShader.frag');
+  noiseWarpShader = readShader('/showcase/docs/Shaders/fragments/noiseWarpShader.frag',{ varyings: Tree.texcoords2 });
+  godraysShader = readShader('/showcase/docs/Shaders/fragments/godraysShader.frag',{ varyings: Tree.texcoords2 });
 }
 
 function setup() {
