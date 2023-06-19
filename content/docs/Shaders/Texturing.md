@@ -6,8 +6,9 @@ weight: 2
 1. Implement other coloring brightness tools such as HSV value V, HSL lightness L or Component average.
 2. Implement texture tinting by mixing color and texel interpolated data.
 
+## Texturing
 
-**1. Introducción y contexto**
+## 1. Introducción y contexto
 
 El mapeo de texturas en transportar una textura (una imágen) a una superficie dibujada. Usualmente, para cubrir de la manera más eficiente distintas formas geométricas, se utiliza el mapeo a triángulos, por lo que se implementa la interpolación con coordenadas baricéntricas para lograr tal efecto.
 
