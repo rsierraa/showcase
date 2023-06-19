@@ -5,10 +5,8 @@ let noiseScale, noiseStrength, godraysIntensity;
 function preload() {
   
   imageTexture = loadImage('/showcase/sketches/shaders/postmalone/post.jpg');
-  noiseWarpShader = readShader('/showcase/docs/Shaders/fragments/noiseWarpShader.frag', { varyings: Tree.texcoords2 });
-  //loadShader('/showcase/content/docs/Shaders/fragments/noiseWarpShader.frag');
-  godraysShader = readShader('/showcase/docs/Shaders/godraysShader.frag', { varyings: Tree.texcoords2 });
-  //loadShader('/showcase/content/docs/Shaders/fragments/godraysShader.frag');
+  noiseWarpShader = loadShader('/showcase/docs/Shaders/fragments/noiseWarpShader.frag');
+  godraysShader = loadShader('/showcase/docs/Shaders/fragments/godraysShader.frag');
 }
 
 function setup() {
@@ -21,7 +19,6 @@ function setup() {
   noiseScale.position(width - 120, 10);
   noiseScale.style('width', '80px');
   noiseScale.input(() => {
-    noiseWarp_pg.shader(noiseWarpShader);
     noiseWarpShader.setUniform('noiseScale', noiseScale.value());
   });
   noiseWarpShader.setUniform('noiseScale', noiseScale.value());
@@ -30,7 +27,6 @@ function setup() {
   noiseStrength.position(width - 120, 35);
   noiseStrength.style('width', '80px');
   noiseStrength.input(() => {
-    noiseWarp_pg.shader(noiseWarpShader);
     noiseWarpShader.setUniform('noiseStrength', noiseStrength.value());
   });
   noiseWarpShader.setUniform('noiseStrength', noiseStrength.value());
@@ -39,7 +35,6 @@ function setup() {
   godraysIntensity.position(width - 120, 60);
   godraysIntensity.style('width', '80px');
   godraysIntensity.input(() => {
-    godrays_pg.shader(godraysShader);
     godraysShader.setUniform('godraysIntensity', godraysIntensity.value());
   });
   godraysShader.setUniform('godraysIntensity', godraysIntensity.value());
@@ -47,6 +42,8 @@ function setup() {
 
 function draw() {
   image_pg.background(0);
+  image_pg.textureMode(NORMAL);
+  image_pg.shader();
   image_pg.image(imageTexture, -width / 2, -height / 2, width, height);
 
   noiseWarp_pg.shader(noiseWarpShader);
@@ -60,5 +57,5 @@ function draw() {
   godrays_pg.rect(-width / 2, -height / 2, width, height);
 
   // Display final result
-  image(godrays_pg, 0, 0, width, height);
+  image(godrays_pg, 0, 0);
 }
