@@ -4,10 +4,8 @@ let noiseScale, noiseStrength, godraysIntensity;
 
 function preload() {
   imageTexture = loadImage('/showcase/content/sketches/shaders/postmalone/post.jpg');
-  noiseWarpShader = readShader('/showcase/content/docs/Shaders/fragments/noiseWarpShader.frag', { varyings: Tree.texcoords2 });
-  godraysShader = readShader('/showcase/content/docs/Shaders/fragments/godraysShader.frag', { varyings: Tree.texcoords2 });
-  //noiseWarpShader = readShader('/showcase/content/docs/Shaders/fragments/noiseWarpShader.frag');
-  //godraysShader = readShader('/showcase/content/docs/Shaders/fragments/godraysShader.frag');
+  noiseWarpShader = loadShader('/showcase/content/docs/Shaders/fragments/noiseWarpShader.frag');
+  godraysShader = loadShader('/showcase/content/docs/Shaders/fragments/godraysShader.frag');
 }
 
 function setup() {
@@ -16,16 +14,6 @@ function setup() {
   noiseWarp_pg = createGraphics(width, height, WEBGL);
   godrays_pg = createGraphics(width, height, WEBGL);
 
-  noiseWarp_pg = createGraphics(width, height, WEBGL);
-  noiseWarp_pg.colorMode(RGB, 1);
-  noiseWarp_pg.textureMode(NORMAL);
-  noiseWarp_pg.shader(noiseWarpShader);
-  
-  godrays_pg = createGraphics(width, height, WEBGL);
-  godrays_pg.colorMode(RGB, 1);
-  godrays_pg.textureMode(NORMAL);
-  godrays_pg.shader(godraysShader);
-  
   noiseScale = createSlider(0.001, 0.1, 0.01, 0.001);
   noiseScale.position(width - 120, 10);
   noiseScale.style('width', '80px');
@@ -33,7 +21,7 @@ function setup() {
     noiseWarpShader.setUniform('noiseScale', noiseScale.value());
   });
   noiseWarpShader.setUniform('noiseScale', noiseScale.value());
-  
+
   noiseStrength = createSlider(0.1, 10, 2, 0.1);
   noiseStrength.position(width - 120, 35);
   noiseStrength.style('width', '80px');
@@ -41,7 +29,7 @@ function setup() {
     noiseWarpShader.setUniform('noiseStrength', noiseStrength.value());
   });
   noiseWarpShader.setUniform('noiseStrength', noiseStrength.value());
-  
+
   godraysIntensity = createSlider(0.0, 1.0, 0.5, 0.01);
   godraysIntensity.position(width - 120, 60);
   godraysIntensity.style('width', '80px');
@@ -54,19 +42,19 @@ function setup() {
 function draw() {
   image_pg.background(0);
   image_pg.textureMode(NORMAL);
-  //image_pg.shader();
+  image_pg.shader();
   image_pg.image(imageTexture, -width / 2, -height / 2, width, height);
-  
+
   noiseWarp_pg.shader(noiseWarpShader);
   noiseWarpShader.setUniform('image', image_pg);
   noiseWarpShader.setUniform('resolution', [width, height]);
   noiseWarp_pg.rect(-width / 2, -height / 2, width, height);
-  
+
   godrays_pg.shader(godraysShader);
   godraysShader.setUniform('image', noiseWarp_pg);
   godraysShader.setUniform('resolution', [width, height]);
   godrays_pg.rect(-width / 2, -height / 2, width, height);
-  
+
   // Display final result
   image(godrays_pg, 0, 0);
 }
