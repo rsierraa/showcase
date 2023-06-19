@@ -18,6 +18,7 @@ function setup() {
   noiseScale.position(width - 120, 10);
   noiseScale.style('width', '80px');
   noiseScale.input(() => {
+    noiseWarp_pg.shader(noiseWarpShader);
     noiseWarpShader.setUniform('noiseScale', noiseScale.value());
   });
   noiseWarpShader.setUniform('noiseScale', noiseScale.value());
@@ -26,6 +27,7 @@ function setup() {
   noiseStrength.position(width - 120, 35);
   noiseStrength.style('width', '80px');
   noiseStrength.input(() => {
+    noiseWarp_pg.shader(noiseWarpShader);
     noiseWarpShader.setUniform('noiseStrength', noiseStrength.value());
   });
   noiseWarpShader.setUniform('noiseStrength', noiseStrength.value());
@@ -34,6 +36,7 @@ function setup() {
   godraysIntensity.position(width - 120, 60);
   godraysIntensity.style('width', '80px');
   godraysIntensity.input(() => {
+    godrays_pg.shader(godraysShader);
     godraysShader.setUniform('godraysIntensity', godraysIntensity.value());
   });
   godraysShader.setUniform('godraysIntensity', godraysIntensity.value());
@@ -41,8 +44,6 @@ function setup() {
 
 function draw() {
   image_pg.background(0);
-  image_pg.textureMode(NORMAL);
-  image_pg.shader(noiseWarpShader);
   image_pg.image(imageTexture, -width / 2, -height / 2, width, height);
 
   noiseWarp_pg.shader(noiseWarpShader);
