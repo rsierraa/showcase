@@ -54,7 +54,7 @@ function draw() {
   noiseWarpShader.setUniform('resolution', [width, height]);
   noiseWarp_pg.emitResolution(noiseWarpShader);
 
-  console.log(noiseWarp_pg);
+  //console.log(noiseWarp_pg);
 
 
 //   godraysShader.setUniform('image', noiseWarp_pg);
@@ -62,7 +62,7 @@ function draw() {
 
 
   // Display final result
-  image(imageTexture, 0, 0);
+  image(noiseWarp_pg, 0, 0);
 }
 
 // 77
