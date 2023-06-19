@@ -16,10 +16,10 @@ function preload() {
     noiseWarp_pg.textureMode(NORMAL);
     noiseWarp_pg.shader(noiseWarpShader);
 
-    godrays_pg = createGraphics(width, height, WEBGL);
-    grodays_pg.colorMode(RGB, 1);
-    grodays_pg.textureMode(NORMAL);
-    grodays_pg.shader(grodays_pg);
+    // godrays_pg = createGraphics(width, height, WEBGL);
+    // godrays_pg.colorMode(RGB, 1);
+    // godrays_pg.textureMode(NORMAL);
+    // godrays_pg.shader(grodays_pg);
   
     noiseScale = createSlider(0.001, 0.1, 0.01, 0.001);
     noiseScale.position(width - 120, 10);
@@ -37,13 +37,13 @@ function preload() {
     });
     noiseWarpShader.setUniform('noiseStrength', noiseStrength.value());
   
-    godraysIntensity = createSlider(0.0, 1.0, 0.5, 0.01);
-    godraysIntensity.position(width - 120, 60);
-    godraysIntensity.style('width', '80px');
-    godraysIntensity.input(() => {
-      godraysShader.setUniform('godraysIntensity', godraysIntensity.value());
-    });
-    godraysShader.setUniform('godraysIntensity', godraysIntensity.value());
+    // godraysIntensity = createSlider(0.0, 1.0, 0.5, 0.01);
+    // godraysIntensity.position(width - 120, 60);
+    // godraysIntensity.style('width', '80px');
+    // godraysIntensity.input(() => {
+    //   godraysShader.setUniform('godraysIntensity', godraysIntensity.value());
+    // });
+    // godraysShader.setUniform('godraysIntensity', godraysIntensity.value());
   }
 
 function draw() {
