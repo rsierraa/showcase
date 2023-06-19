@@ -63,5 +63,5 @@ function draw() {
   godrays_pg.rect(-width / 2, -height / 2, width, height);
 
   // Display final result
-  image(godrays_pg, 0, 0);
+  image(imageTexture, 0, 0);
 }
