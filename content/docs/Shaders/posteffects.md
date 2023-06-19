@@ -23,12 +23,9 @@ https://www.scratchapixel.com/lessons/3d-basic-rendering/ray-tracing-rendering-a
 
 ### Controles
 
-
-
-
 {{< p5-iframe sketch="/showcase/sketches/shaders/postmalone/postman.js" width="800" height="650" lib1="https://cdn.jsdelivr.net/gh/VisualComputing/p5.treegl/p5.treegl.js">}}
 
-{{< p5-iframe sketch="/showcase/sketches/shaders/ProceduralTexturing/protexturing.js" width="550" height="550" lib1="https://cdn.jsdelivr.net/gh/VisualComputing/p5.treegl/p5.treegl.js" lib2="https://cdn.jsdelivr.net/gh/freshfork/p5.EasyCam@1.2.1/p5.easycam.js">}}
+
 
 {{<details "Sketch Code">}}
 
