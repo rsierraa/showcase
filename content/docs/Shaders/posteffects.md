@@ -3,8 +3,7 @@ title: Post Effects
 weight: 2
 ---
 ## Exercise
-1. Implement other coloring brightness tools such as HSV value V, HSL lightness L or Component average.
-2. Implement texture tinting by mixing color and texel interpolated data.
+1. Implement some posteffects you find interesting.
 
 
 **1. Introducción y contexto**
