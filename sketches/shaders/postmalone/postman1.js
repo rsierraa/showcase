@@ -2,7 +2,7 @@ let myShader;
 let imageTexture;
 
 function preload() {
-  myShader = loadShader('shader.vert', 'shader.frag');
+  myShader = loadShader('/showcase/docs/Shaders/fragments/shader.vert', '/showcase/docs/Shaders/fragments/shader.frag');
   imageTexture = loadImage('/showcase/sketches/shaders/postmalone/post.jpg');
 }
 
