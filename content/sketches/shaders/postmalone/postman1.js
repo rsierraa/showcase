@@ -10,11 +10,10 @@ function setup() {
   createCanvas(800, 600, WEBGL);
   noStroke();
   shader(myShader);
-  myShader.setUniform('iResolution', [width, height]);
-  myShader.setUniform('iMouse', [mouseX, mouseY]);
-  myShader.setUniform('iTime', millis() / 1000.0);
-  myShader.setUniform('iChannel0', imageTexture);
-  myShader.setUniform('iChannelResolution[0]', [imageTexture.width, imageTexture.height]);
+  myShader.setUniform('u_resolution', [width, height]);
+  myShader.setUniform('u_mouse', [mouseX, mouseY]);
+  myShader.setUniform('u_time', millis() / 1000.0);
+  myShader.setUniform('u_tex0', imageTexture);
 }
 
 function draw() {
