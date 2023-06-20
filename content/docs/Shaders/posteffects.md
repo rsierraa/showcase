@@ -369,4 +369,5 @@ El funcionamiento del programa se ve entorpecido por las políticas de CORS (Cro
 https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS
 {{< /hint >}}
 
-![debugger](content/sketches/shaders/postmalone/qunundrum.png)
+
+<img src="content/sketches/shaders/postmalone/qunundrum.png" alt="eeo" width="500" height="600">
