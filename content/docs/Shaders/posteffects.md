@@ -370,4 +370,4 @@ https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS
 {{< /hint >}}
 
 
-<img src="content/sketches/shaders/postmalone/qunundrum.png" alt="eeo" width="500" height="600">
+<img src="showcase/content/sketches/shaders/postmalone/qunundrum.png" alt="eeo" width="500" height="600">
