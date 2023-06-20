@@ -3,7 +3,7 @@ let imageTexture;
 
 function preload() {
   myShader = loadShader('shader.vert', 'shader.frag');
-  imageTexture = loadImage('ruta_de_la_imagen.jpg'); // Reemplaza 'ruta_de_la_imagen.jpg' con la ruta correcta a tu imagen
+  imageTexture = loadImage('/showcase/sketches/shaders/postmalone/post.jpg');
 }
 
 function setup() {
