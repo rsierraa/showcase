@@ -4,10 +4,11 @@ let noiseScale, noiseStrength, godraysIntensity;
 
 function preload() {
   
-  imageTexture = loadImage('/showcase/sketches/shaders/postmalone/post.jpg');
-  noiseWarpShader = loadShader(undefined, '/showcase/docs/Shaders/fragments/noiseWarpShader.frag');
-  godraysShader = loadShader(undefined, '/showcase/docs/Shaders/fragments/godraysShader.frag');
+  imageTexture = loadImage('content/sketches/shaders/postmalone/post.jpg');
+  noiseWarpShader = loadShader(undefined, 'content/docs/Shaders/fragments/noiseWarpShader.frag');
+  godraysShader = loadShader(undefined, 'content/docs/Shaders/fragments/godraysShader.frag');
 }
+
 
 function setup() {
   createCanvas(600, 600, WEBGL);
