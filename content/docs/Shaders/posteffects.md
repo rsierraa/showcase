@@ -359,3 +359,14 @@ void main() {
 ```
 
 {{</details >}}
+
+
+## Difucultades
+
+El funcionamiento del programa se ve entorpecido por las políticas de CORS (Cross-Origin Resource Sharing), las cuales no permiten cargar los recursos citados en el código correctamente, junto con otros errores de p5.js que no ha sido posible resolver hasta el momento, pero se encuentra en revisión.
+
+{{< hint info >}}
+https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS
+{{< /hint >}}
+
+![debugger](showcase/content/sketches/shaders/postmalone/qunundrum.jpg)
