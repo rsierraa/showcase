@@ -55,8 +55,11 @@ Los blending modes aplicados son los mismos vistos en **Coloring**.
 * **Slider**: controla el brillo (visible cuando se selecciona tinting)
 * **Color Pickers**: para seleccionar los colores que se aplicarán en el tinting
 
+{{< p5-iframe sketch="/showcase/sketches/shaders/texturing/b1.js" width="800" height="650" lib1="https://cdn.jsdelivr.net/gh/VisualComputing/p5.treegl/p5.treegl.js">}}
 
 {{< p5-iframe sketch="/showcase/sketches/shaders/texturing/brightness.js" width="800" height="650" lib1="https://cdn.jsdelivr.net/gh/VisualComputing/p5.treegl/p5.treegl.js">}}
+
+
 
 {{<details "Sketch Code">}}
 
