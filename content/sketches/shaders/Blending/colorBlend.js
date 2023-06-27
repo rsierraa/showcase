@@ -37,7 +37,7 @@ function setup() {
   
   rectColor1 = createGraphics(150, 150);
   rectColor2 = createGraphics(150, 150);
-  rectResult = createGraphics(1, 1);
+  rectResult = createGraphics(150, 150);
   
   color1 = picker1.value();
   color2 = picker2.value();

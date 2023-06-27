@@ -9,6 +9,8 @@ weight: 1
 
 ## Coloring
 
+
+
 ## Color Blender
 
 {{< p5-iframe sketch="/showcase/sketches/shaders/Blending/colorBlend.js" width="950" height="900" lib1="https://cdn.jsdelivr.net/gh/VisualComputing/p5.treegl/p5.treegl.js">}}
