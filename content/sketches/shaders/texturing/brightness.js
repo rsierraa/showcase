@@ -107,7 +107,7 @@ function setup() {
       img.hide();
       img.loop();
     } else {
-      img = loadImage('/showcase/docs/Shaders/resources/fire_breathing.png');
+      img = loadImage('/showcase/docs/Shaders/resources/tenis.png');
       img.hide();
       img.pause();
     }

@@ -11,8 +11,12 @@ let bg_current_texture;
 function preload() {
     earth_texture = loadImage('/showcase/docs/Shaders/resources/billar.png');
     moon_texture = loadImage('/showcase/docs/Shaders/resources/billar.png');
-    bg_texture = loadImage('/showcase/docs/Shaders/resources/tabla.jpg')
-    empty_texture = loadImage('/showcase/docs/Shaders/resources/white.png')
+    bg_texture = loadImage('/showcase/docs/Shaders/resources/tabla.jpg');
+
+    pool_texture = loadImage('/showcase/docs/Shaders/resources/tenis.png');
+    pool1_texture = loadImage('/showcase/docs/Shaders/resources/tenis.png');
+    bg1_texture = loadImage('/showcase/docs/Shaders/resources/cancha.jpg');
+    empty_texture = loadImage('/showcase/docs/Shaders/resources/white.png');
     // Cargar las texturas currentes
     earth_current_texture = loadImage('/showcase/docs/Shaders/resources/tenis.png');
     moon_current_texture = loadImage('/showcase/docs/Shaders/resources/tenis.png');
@@ -30,9 +34,9 @@ function toggleTextures() {
     toggleState = !toggleState; // Changes the state of the textures
     
     if (toggleState) {
-        earth_current_texture = empty_texture;
-        moon_current_texture = empty_texture;
-        bg_current_texture = empty_texture;
+        earth_current_texture = pool_texture;
+        moon_current_texture = pool1_texture;
+        bg_current_texture = bg1_texture;
     } else {
         earth_current_texture = earth_texture;
         moon_current_texture = moon_texture;
