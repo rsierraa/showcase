@@ -9,9 +9,11 @@ weight: 1
 
 ## Coloring
 
+## Color Blender
+
 {{< p5-iframe sketch="/showcase/sketches/shaders/Blending/colorBlend.js" width="950" height="900" lib1="https://cdn.jsdelivr.net/gh/VisualComputing/p5.treegl/p5.treegl.js">}}
 
-## Color Blender
+
 
 ## 1. Introducción
 El "color blending" o "mezcla de colores" se refiere al proceso de combinar varios colores para crear un efecto de transición suave entre ellos. Es comúnmente utilizado en el campo del diseño gráfico, la pintura, la ilustración y la fotografía digital.
