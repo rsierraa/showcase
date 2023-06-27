@@ -46,7 +46,7 @@ Al aplicar la operación texel a texel, el color resultante se va pintando, y la
 
 Los blending modes aplicados son los mismos vistos en **Coloring**.
 
-### Controles
+### Controless
 
 * **Botón Choose File**: para cargar una imagen o video
 * **Checkbox Default Video**: marcar para usar el video por defecto, desmarcar para usar la imagen por defecto
