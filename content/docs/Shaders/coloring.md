@@ -9,9 +9,7 @@ weight: 1
 
 ## Coloring
 
-{{< p5-iframe sketch="/showcase/sketches/shaders/Blending/colorBlend.js" width="950" height="900" lib1="https://cdn.jsdelivr.net/gh/VisualComputing/p5.treegl/p5.treegl.js">}}
 
-## Color Blender
 
 ## 1. Introducción
 El "color blending" o "mezcla de colores" se refiere al proceso de combinar varios colores para crear un efecto de transición suave entre ellos. Es comúnmente utilizado en el campo del diseño gráfico, la pintura, la ilustración y la fotografía digital.
@@ -44,6 +42,8 @@ Los modos de mezcla implementados incluyen: multiplicación, suma (dodge lineal)
 Las fórmulas fueron tomadas de [Blend Modes (Wikipedia)](https://en.wikipedia.org/wiki/Blend_modes) y [Formulas for Photoshop blending modes (RBA's Astrophotography)](http://www.deepskycolors.com/archivo/2010/04/21/formulas-for-Photoshop-blending-modes.html)
 
 Otras referencias utilizadas: [Why my texture coordinates are inverted each time I call my GLSL shader in P5.js (Stack Overflow)](https://stackoverflow.com/questions/67576655/why-my-texture-coordinates-are-inverted-each-time-i-call-my-glsl-shader-in-p5js)
+
+## Color Blender
 
 {{< p5-iframe sketch="/showcase/sketches/shaders/Blending/colorBlend2.js" width="950" height="900" lib1="https://cdn.jsdelivr.net/gh/VisualComputing/p5.treegl/p5.treegl.js">}}
 
