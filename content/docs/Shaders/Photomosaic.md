@@ -25,6 +25,8 @@ Aplicaciones interactivas: Con el avance de la tecnología, el fotomosaico se ha
 
 En esta aplicación, se utiliza un mecanismo similar al de la coherencia espacial para la pixelación, con la particularidad de que cada píxel de baja resolución se asigna a una imagen específica. El shader recibe una imagen que contiene todas las imágenes del conjunto de datos que formarán el mosaico. Estas imágenes se ordenan según una métrica, en este caso, el luma. El shader calcula el color para cada texel de baja resolución y luego obtiene el luma de ese color. Este valor de luma se utiliza para determinar el desplazamiento horizontal desde el extremo izquierdo utilizando la función "texture2D". De esta manera, se obtiene la coordenada x de la imagen correspondiente que se dibujará en esa sección del mosaico, es decir, la ubicación de inicio de la imagen en el buffer recibido.
 
+Para esta implementacion se utilizo Tree.texcoords2 desarrollado por Jean Pierre Charalambos (https://github.com/nakednous) y Daniel Angulo (https://github.com/dangulos)
+
 ### Controles
 
 * **Slider**: define la resolución (por defecto 30, es decir 30 pixeles de baja resolución que en este caso serán imágenes del mosaico por cada lado de la cuadrícula). El mínimo valor es 1 y el máximo 150. Una resolución mayor, implica más pixeles, y por tanto, de menor tamaño cada vez. El tamaño de la cuadrícula es de 600px x 600px  por lo que una resolución de 150 implica pixeles de baja resolución de dimensiones 4px x 4px.
