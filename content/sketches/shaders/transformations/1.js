@@ -1,25 +1,24 @@
 let toggleButton;
 let toggleState = false;
-let earth_texture;
-let moon_texture;
+let ball_texture;
+let ball1_texture;
 let bg_texture;
 let empty_texture;
-let earth_current_texture;
-let moon_current_texture;
+let sphere_current_texture;
+let sphere1_current_texture;
 let bg_current_texture;
 
 function preload() {
-    earth_texture = loadImage('/showcase/docs/Shaders/resources/billar.png');
-    moon_texture = loadImage('/showcase/docs/Shaders/resources/billar.png');
+    ball_texture = loadImage('/showcase/docs/Shaders/resources/billar.png');
+    ball1_texture = loadImage('/showcase/docs/Shaders/resources/billar.png');
     bg_texture = loadImage('/showcase/docs/Shaders/resources/tabla.jpg');
 
     pool_texture = loadImage('/showcase/docs/Shaders/resources/tenis.png');
     pool1_texture = loadImage('/showcase/docs/Shaders/resources/tenis.png');
     bg1_texture = loadImage('/showcase/docs/Shaders/resources/cancha.jpg');
-    empty_texture = loadImage('/showcase/docs/Shaders/resources/white.png');
-    // Cargar las texturas currentes
-    earth_current_texture = loadImage('/showcase/docs/Shaders/resources/tenis.png');
-    moon_current_texture = loadImage('/showcase/docs/Shaders/resources/tenis.png');
+
+    sphere_current_texture = loadImage('/showcase/docs/Shaders/resources/tenis.png');
+    sphere1_current_texture = loadImage('/showcase/docs/Shaders/resources/tenis.png');
     bg_current_texture = loadImage('/showcase/docs/Shaders/resources/cancha.jpg');
 }
 
@@ -34,12 +33,12 @@ function toggleTextures() {
     toggleState = !toggleState; // Changes the state of the textures
     
     if (toggleState) {
-        earth_current_texture = pool_texture;
-        moon_current_texture = pool1_texture;
+        sphere_current_texture = pool_texture;
+        sphere1_current_texture = pool1_texture;
         bg_current_texture = bg1_texture;
     } else {
-        earth_current_texture = earth_texture;
-        moon_current_texture = moon_texture;
+        sphere_current_texture = ball_texture;
+        sphere1_current_texture = ball1_texture;
         bg_current_texture = bg_texture;
     }
 }
@@ -65,15 +64,15 @@ function draw() {
 
     push()
     rotateY(frameCount * 0.01); //rotación de la tierra sobre su propio eje
-    texture(earth_current_texture); 
+    texture(sphere_current_texture); 
     sphere(100);
     pop()
 
     push()
-    rotateY(-frameCount * 0.05 / 10);//Traslación de la luna al rededor de la tierra
+    rotateY(frameCount * 0.08 / 10);;//Traslación de la luna al rededor de la tierra
     translate(0, 0, 170)//Distancia del centro de la luna al centro de la tierra
     rotateY(-frameCount * 0.0002);//Rotación del la luna sobre su propio eje
-    texture(moon_current_texture);
+    texture(sphere1_current_texture);
     sphere(25);
     pop()
 }
