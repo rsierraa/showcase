@@ -6,7 +6,7 @@ let pics;
 let resolution, quantity;
 
 function preload() {
-  mosaic = readShader('/showcase/sketches/shaders/Blending/colorBlender2.frag', { varyings: Tree.texcoords2 });
+  mosaic = readShader('/showcase/sketches/shaders/Photomosaic/normalMosaic.frag', { varyings: Tree.texcoords2 });
   pics = [];
   n = 31;
   for(let i=1; i<n; i++) pics.push(loadImage(`/showcase/sketches/shaders/Photomosaic/dataset/${i}.jpg`));
