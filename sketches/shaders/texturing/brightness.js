@@ -45,7 +45,7 @@ function setup() {
   lmselect.option('tinting', 5);
   lmselect.selected('original');
 
-  img = loadImage('/showcase/docs/Shaders/resources/lineas.png');
+  img = loadImage('/showcase/docs/Shaders/resources/photomosaic.jpg');
   input = createFileInput(handleFile);
 
   colorA = "red";
@@ -107,7 +107,7 @@ function setup() {
       img.hide();
       img.loop();
     } else {
-      img = loadImage('/showcase/docs/Shaders/resources/tenis.png');
+      img = loadImage('/showcase/docs/Shaders/resources/photomosaic.jpg');
       img.hide();
       img.pause();
     }
@@ -205,6 +205,4 @@ function randomint(min, max) {
   return Math.floor(Math.random() * (max - min + 1) + min);
 }
 
-
-//mmmmmmm
 
