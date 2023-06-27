@@ -69,9 +69,9 @@ function draw() {
     pop()
 
     push()
-    rotateY(frameCount * 0.08 / 10);;//Traslación de la luna al rededor de la tierra
+    rotateY(frameCount * 0.3 / 10);;//Traslación de la luna al rededor de la tierra
     translate(0, 0, 170)//Distancia del centro de la luna al centro de la tierra
-    rotateY(-frameCount * 0.0002);//Rotación del la luna sobre su propio eje
+    rotateY(-frameCount * 0.0042);//Rotación del la luna sobre su propio eje
     texture(sphere1_current_texture);
     sphere(25);
     pop()
