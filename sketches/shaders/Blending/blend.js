@@ -55,7 +55,6 @@ function setup() {
   bmselect.selected('MULTIPLY');
 
   img = loadImage('/showcase/docs/Shaders/resources/coloring.jpg');
-  input = createFileInput(handleFile);
 
   video_on = createCheckbox('Video por defecto', false);
   video_on.changed(() => {
@@ -95,16 +94,4 @@ function draw() {
   tex.square();
   texture(tex);
   square(-450, -400, 800);
-}
-
-function handleFile(file) {
-  if (file.type === 'image') {
-    img = createImg(file.data, '');
-    img.hide();
-  }
-  else if (file.type === 'video') {
-    img = createVideo([file.data]);
-    img.hide();
-    img.loop();
-  }
 }
