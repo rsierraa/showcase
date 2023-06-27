@@ -120,9 +120,26 @@ function setup() {
 function draw() {
   background(0);
 
-  img.resize(width, height);
 
-  image(img, 0, 0, 700, 500); 
+
+  
+  let aspectRatio = img.width / img.height; // Relación de aspecto original de la imagen o video
+
+  let canvasWidth = width;
+  let canvasHeight = width / aspectRatio;
+
+  if (canvasHeight > height) {
+    canvasHeight = height;
+    canvasWidth = height * aspectRatio;
+  }
+
+  let x = (width - canvasWidth) / 2;
+  let y = (height - canvasHeight) / 2;
+
+  image(img, x, y, canvasWidth, canvasHeight);
+  // img.resize(width, height);
+
+  // image(img, 0, 0, 700, 500); 
   
   mode = lmselect.value()
 
