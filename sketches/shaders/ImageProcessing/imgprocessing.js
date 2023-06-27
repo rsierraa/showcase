@@ -504,7 +504,13 @@ function draw() {
     maskShader.setUniform('mask5', mask5);
   }
 
-  quad(-width / 2, -height / 2, width / 2, -height / 2, width / 2, height / 2, -width / 2, height / 2);
+  // quad(-width / 2, -height / 2, width / 2, -height / 2, width / 2, height / 2, -width / 2, height / 2);
+  beginShape();
+  vertex(-1, -1, 0, 0, 1);
+  vertex(1, -1, 0, 1, 1);
+  vertex(1, 1, 0, 1, 0);
+  vertex(-1, 1, 0, 0, 0);
+  endShape();
 }
 
 function handleFile(file) {

@@ -45,7 +45,7 @@ function setup() {
   lmselect.option('tinting', 5);
   lmselect.selected('original');
 
-  img = loadImage('/showcase/docs/Shaders/resources/fire_breathing.png');
+  img = loadImage('/showcase/docs/Shaders/resources/lineas.png');
   input = createFileInput(handleFile);
 
   colorA = "red";
@@ -117,29 +117,11 @@ function setup() {
 
 }
 
+
 function draw() {
   background(0);
 
-
-
-  
-  let aspectRatio = img.width / img.height; // Relación de aspecto original de la imagen o video
-
-  let canvasWidth = width;
-  let canvasHeight = width / aspectRatio;
-
-  if (canvasHeight > height) {
-    canvasHeight = height;
-    canvasWidth = height * aspectRatio;
-  }
-
-  let x = (width - canvasWidth) / 2;
-  let y = (height - canvasHeight) / 2;
-
-  image(img, x, y, canvasWidth, canvasHeight);
-  // img.resize(width, height);
-
-  // image(img, 0, 0, 700, 500); 
+  image(img, -350, -250, 700, 500); 
   
   mode = lmselect.value()
 
@@ -196,7 +178,12 @@ function draw() {
     brightnessShader.setUniform('mode', mode);
   }
 
-  quad(-width / 2, -height / 2, width / 2, -height / 2, width / 2, height / 2, -width / 2, height / 2);
+  beginShape();
+  vertex(-1, -1, 0, 0, 1);
+  vertex(1, -1, 0, 1, 1);
+  vertex(1, 1, 0, 1, 0);
+  vertex(-1, 1, 0, 0, 0);
+  endShape();
 
 }
 
