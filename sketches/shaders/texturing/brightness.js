@@ -120,6 +120,8 @@ function setup() {
 function draw() {
   background(0);
 
+  img.resize(width, height);
+
   image(img, 0, 0, 700, 500); 
   
   mode = lmselect.value()
