@@ -12,7 +12,7 @@ let effect;
 let brightness;
 
 function preload(){
-  colorShader = readShader('colorBlender.frag',
+  colorShader = readShader('content\sketches\shaders\Blending\colorBlender.frag',
                           {varyings: Tree.color4});
 }
 
