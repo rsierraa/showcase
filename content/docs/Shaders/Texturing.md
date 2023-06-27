@@ -6,8 +6,9 @@ weight: 2
 1. Implement other coloring brightness tools such as HSV value V, HSL lightness L or Component average.
 2. Implement texture tinting by mixing color and texel interpolated data.
 
+## Texturing
 
-**1. Introducción y contexto**
+## 1. Introducción y contexto
 
 El mapeo de texturas en transportar una textura (una imágen) a una superficie dibujada. Usualmente, para cubrir de la manera más eficiente distintas formas geométricas, se utiliza el mapeo a triángulos, por lo que se implementa la interpolación con coordenadas baricéntricas para lograr tal efecto.
 
@@ -15,8 +16,21 @@ El mapeo de texturas en transportar una textura (una imágen) a una superficie d
 https://www.scratchapixel.com/lessons/3d-basic-rendering/ray-tracing-rendering-a-triangle/barycentric-coordinates.html#:~:text=In%20other%20words%2C%20barycentric%20coordinates,normal%20at%20the%20intersection%20point.
 {{< /hint >}}
 
+## 2. Antecedentes y trabajo previo
 
-## Brightness & Tinting
+ A lo largo de los años, se han desarrollado diferentes técnicas y algoritmos para generar y aplicar texturas a imágenes digitales. Algunos de los enfoques y avances más destacados son los siguientes:
+
+Mapeo de texturas: Uno de los primeros enfoques para aplicar texturas a objetos 3D fue el mapeo de texturas. Esta técnica consiste en asignar una imagen bidimensional a la superficie de un objeto tridimensional, lo que permite simular la apariencia de texturas en la renderización de gráficos por computadora. El mapeo de texturas ha sido ampliamente utilizado en industrias como los videojuegos y la animación por computadora.
+
+Síntesis de texturas: La síntesis de texturas se refiere a la generación de nuevas texturas a partir de una o varias muestras de textura existentes. Los algoritmos de síntesis de texturas se basan en la extracción de características estadísticas de las muestras y su posterior generación para crear texturas coherentes y realistas. Algunos métodos populares incluyen los campos aleatorios de Markov, la transformada Wavelet y los modelos de fractales.
+
+Texturización basada en imágenes: La texturización basada en imágenes implica la transferencia de texturas de una imagen de origen a una imagen de destino. Esto puede ser útil, por ejemplo, para aplicar el estilo de una pintura a una fotografía o para transferir las características de textura de una imagen a otra. Algoritmos como el mapeo de coordenadas y la fusión de regiones se han utilizado para realizar esta tarea.
+
+Texturización procedural: La texturización procedural consiste en generar texturas de forma algorítmica, sin la necesidad de utilizar muestras de textura existentes. Se basa en el uso de funciones y operaciones matemáticas para generar patrones de textura complejos y detallados. Esto permite la creación de texturas personalizadas y la generación de variaciones infinitas. Algunas técnicas comunes en la texturización procedural incluyen el ruido fractal, los algoritmos de Voronoi y los generadores de patrones.
+
+Aprendizaje profundo para la texturización: En los últimos años, el uso de técnicas de aprendizaje profundo, como las redes neuronales convolucionales, ha demostrado ser prometedor en el campo de la texturización. Estos enfoques permiten aprender características y estilos de textura a partir de grandes conjuntos de datos, lo que facilita la generación de texturas realistas y la transferencia de estilos de manera más precisa.
+
+## 3. Solución [Brightness & Tinting]
 
 El ejercicio se compone de dos partes: La primera consiste en la visualización de la iluminación de la imagen y la segunda es la aplicación de tinting sobre la imagen utilizando diferentes blending modes.
 
@@ -32,7 +46,7 @@ Al aplicar la operación texel a texel, el color resultante se va pintando, y la
 
 Los blending modes aplicados son los mismos vistos en **Coloring**.
 
-### Controles
+### Controless
 
 * **Botón Choose File**: para cargar una imagen o video
 * **Checkbox Default Video**: marcar para usar el video por defecto, desmarcar para usar la imagen por defecto
@@ -42,7 +56,7 @@ Los blending modes aplicados son los mismos vistos en **Coloring**.
 * **Color Pickers**: para seleccionar los colores que se aplicarán en el tinting
 
 
-{{< p5-iframe sketch="/VisualComputing/sketches/shaders/BrightnessTinting/brightness.js" width="800" height="650" lib1="https://cdn.jsdelivr.net/gh/VisualComputing/p5.treegl/p5.treegl.js">}}
+{{< p5-iframe sketch="/showcase/sketches/shaders/texturing/brightness.js" width="800" height="650" lib1="https://cdn.jsdelivr.net/gh/VisualComputing/p5.treegl/p5.treegl.js">}}
 
 {{<details "Sketch Code">}}
 
@@ -74,8 +88,8 @@ let video_on;
 
 function preload() {
 
-  brightnessShader = readShader('/VisualComputing/docs/shaders/fragments/brightness.frag', { varyings: Tree.texcoords2 });
-  tintingShader = readShader('/VisualComputing/docs/shaders/fragments/tinting.frag', { varyings: [Tree.texcoords2 | Tree.color4] });
+  brightnessShader = readShader('/showcase/docs/Shaders/fragments/brightness.frag', { varyings: Tree.texcoords2 });
+  tintingShader = readShader('/showcase/docs/Shaders/fragments/tinting.frag', { varyings: [Tree.texcoords2 | Tree.color4] });
 
 }
 
@@ -95,7 +109,7 @@ function setup() {
   lmselect.option('tinting', 5);
   lmselect.selected('original');
 
-  img = loadImage('/VisualComputing/docs/shaders/resources/fire_breathing.png');
+  img = loadImage('/showcase/docs/Shaders/resources/fire_breathing.png');
   input = createFileInput(handleFile);
 
   colorA = "red";
@@ -153,11 +167,11 @@ function setup() {
   video_on = createCheckbox('default video', false);
   video_on.changed(() => {
     if (video_on.checked()) {
-      img = createVideo(['/VisualComputing/docs/shaders/resources/video0.mp4']);
+      img = createVideo(['/showcase/docs/Shaders/resources/video0.mp4']);
       img.hide();
       img.loop();
     } else {
-      img = loadImage('/VisualComputing/docs/shaders/resources/fire_breathing.png');
+      img = loadImage('/showcase/docs/Shaders/resources/fire_breathing.png');
       img.hide();
       img.pause();
     }
@@ -432,3 +446,33 @@ void main() {
 ```
 
 {{</details >}}
+
+## 4. Conclusiones
+
+1. El texturizado es una técnica fundamental en el procesamiento de imágenes y video que permite aplicar efectos visuales interesantes y realistas a través de la manipulación de texturas.
+
+2. Los antecedentes y el trabajo previo en texturizado han demostrado una amplia gama de aplicaciones en campos como la animación, los videojuegos, la realidad virtual y aumentada, entre otros.
+
+3. El código presentado en este trabajo muestra cómo se puede implementar el texturizado utilizando shaders en un entorno de programación. La combinación de shaders de brillo y tintado permite ajustar la luminosidad y aplicar colores personalizados a una imagen o video en tiempo real.
+
+4. El trabajo presenta una interfaz de usuario intuitiva que permite al usuario seleccionar diferentes modos de luminosidad, modos de mezcla de colores, brillo y cargar imágenes o videos para aplicar los efectos de texturizado.
+
+5. La aplicación del texturizado a través de shaders proporciona un enfoque flexible y eficiente para procesar imágenes y videos en tiempo real, lo que puede ser especialmente útil en aplicaciones interactivas y en tiempo real como juegos y aplicaciones multimedia.
+
+6. A través de la experimentación con el código presentado, se puede observar cómo diferentes configuraciones de modos de luminosidad, colores y brillo pueden afectar la apariencia de la imagen o video, lo que permite una amplia gama de posibilidades creativas en el texturizado.
+
+## 5. Trabajo a futuro
+
+1. Mejora de algoritmos de texturizado: Se puede investigar y desarrollar nuevos algoritmos y técnicas de texturizado que permitan una mayor calidad y realismo en la aplicación de texturas. Esto puede incluir métodos de mapeo de texturas más precisos, técnicas de suavizado y blending mejoradas, generación procedural de texturas, entre otros.
+
+2. Generación automática de texturas: Explorar la generación automática de texturas basada en parámetros y características específicas. Esto podría implicar el desarrollo de algoritmos que generen texturas realistas y coherentes a partir de imágenes de referencia, permitiendo una mayor flexibilidad en la creación y aplicación de texturas.
+
+3. Texturizado basado en análisis de contenido: Investigar y desarrollar técnicas que utilicen análisis de contenido de la imagen o el objeto a texturizar para adaptar la aplicación de texturas de manera más inteligente. Esto puede incluir la detección de características y patrones relevantes en la imagen y su aplicación en áreas específicas, teniendo en cuenta la forma y la estructura del objeto.
+
+4. Herramientas interactivas de texturizado: Crear herramientas interactivas y amigables para el usuario que permitan una edición y manipulación intuitiva de las texturas aplicadas. Esto podría incluir características como la pintura directa sobre la superficie del objeto, la selección y manipulación de regiones de textura, y la visualización en tiempo real de los cambios aplicados.
+
+5. Texturizado en tiempo real: Investigar y desarrollar técnicas que permitan el texturizado en tiempo real de objetos en movimiento o escenas dinámicas. Esto podría ser útil en aplicaciones como animación, juegos y realidad virtual, donde se requiere una actualización continua de las texturas para mantener la coherencia visual.
+
+6. Texturizado basado en inteligencia artificial: Explorar la aplicación de técnicas de inteligencia artificial, como el aprendizaje automático y las redes neuronales, para mejorar el proceso de texturizado. Esto podría incluir el entrenamiento de modelos que generen automáticamente texturas realistas o la optimización de los parámetros de texturizado basados en análisis de grandes conjuntos de datos.
+
+Estas son solo algunas ideas para el trabajo a futuro en el campo del texturizado. La elección dependerá de tus intereses, recursos disponibles y objetivos específicos de aplicación.

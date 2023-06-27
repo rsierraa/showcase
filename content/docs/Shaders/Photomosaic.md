@@ -5,11 +5,13 @@ weight: 7
 ## Exercise
 Implement a mosaic (or/and ascii art) visual application.
 
-## Introduction
+## Photomosaic
+
+## 1. Introducción
 
 El fotomosaico es una técnica que consiste en crear una imagen grande compuesta por una colección de imágenes más pequeñas (los azulejos o "tiles") que, en conjunto, forman una representación visual del objeto o escena original. Cada imagen pequeña se selecciona y coloca de manera que su contenido contribuya a la apariencia general del objeto o escena que se está representando.
 
-## Background
+## 2. Antecedentes y trabajo previo
 
 Inicios en el arte: El artista y diseñador Robert Silvers se considera uno de los pioneros en el uso de la técnica del fotomosaico. En la década de 1970, Silvers comenzó a crear obras de arte utilizando fotografías pequeñas dispuestas en patrones regulares para formar una imagen más grande. Sus trabajos iniciales fueron realizados manualmente, seleccionando y pegando las imágenes en su lugar.
 
@@ -19,7 +21,7 @@ Popularización comercial: A mediados de la década de 1990, el fotomosaico gan�
 
 Aplicaciones interactivas: Con el avance de la tecnología, el fotomosaico se ha utilizado en aplicaciones interactivas y en línea. Se han desarrollado sitios web y aplicaciones móviles que permiten a los usuarios cargar sus propias imágenes y generar fotomosaicos en tiempo real, lo que ha ampliado aún más el alcance y la accesibilidad de la técnica.
 
-## Solution, Images Photomosaic
+## 3. Solución [Images Photomosaic]
 
 En esta aplicación, se utiliza un mecanismo similar al de la coherencia espacial para la pixelación, con la particularidad de que cada píxel de baja resolución se asigna a una imagen específica. El shader recibe una imagen que contiene todas las imágenes del conjunto de datos que formarán el mosaico. Estas imágenes se ordenan según una métrica, en este caso, el luma. El shader calcula el color para cada texel de baja resolución y luego obtiene el luma de ese color. Este valor de luma se utiliza para determinar el desplazamiento horizontal desde el extremo izquierdo utilizando la función "texture2D". De esta manera, se obtiene la coordenada x de la imagen correspondiente que se dibujará en esa sección del mosaico, es decir, la ubicación de inicio de la imagen en el buffer recibido.
 
@@ -211,7 +213,7 @@ void main() {
 ```
 {{</details >}}
 
-## Solution, ASCII Art
+## 3.1. Solución [ASCII Art]
 
 Para las imágenes, se redujo el tamaño de los caracteres a 4pt y se ajustó el interlineado para permitir la visualización de la imagen en un espacio más reducido.
 
@@ -323,7 +325,7 @@ function setup() {
 ```
 {{</details >}}
 
-## Conclusions
+## 4. Conclusiones
 
 Creatividad visual: El fotomosaico brinda una forma creativa de presentar imágenes utilizando una colección de imágenes más pequeñas. Esto permite crear composiciones visuales interesantes y sorprendentes, agregando un elemento de originalidad y estilo a las imágenes.
 
@@ -335,7 +337,7 @@ Personalización y participación del usuario: Con las herramientas y software a
 
 Evolución tecnológica: A medida que la tecnología avanza, las técnicas y herramientas para crear fotomosaicos también evolucionan. Los algoritmos de selección y colocación de imágenes de azulejos se han vuelto más sofisticados, lo que permite una mayor precisión y calidad en los resultados. Además, la disponibilidad de aplicaciones en línea y móviles ha facilitado aún más la creación y el uso de fotomosaicos.
 
-## Future work
+## 5. Trabajo a futuro
 
 Arte y diseño digital: El fotomosaico puede seguir siendo utilizado como una forma de expresión artística, permitiendo a los artistas crear obras visuales únicas y originales. Además, puede aplicarse en el diseño digital para crear composiciones visuales llamativas en diferentes contextos, como publicidad, diseño de logotipos, ilustraciones, entre otros.
 

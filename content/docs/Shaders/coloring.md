@@ -7,10 +7,16 @@ weight: 1
 1. Figure it out the js code of the above sketches.
 2. Implement other blending modes.
 
-## Introduction
+## Coloring
+
+{{< p5-iframe sketch="/showcase/sketches/shaders/Blending/colorBlend.js" width="950" height="900" lib1="https://cdn.jsdelivr.net/gh/VisualComputing/p5.treegl/p5.treegl.js">}}
+
+## Color Blender
+
+## 1. Introducción
 El "color blending" o "mezcla de colores" se refiere al proceso de combinar varios colores para crear un efecto de transición suave entre ellos. Es comúnmente utilizado en el campo del diseño gráfico, la pintura, la ilustración y la fotografía digital.
 
-## Background
+## 2. Antecedentes y trabajo previo
 El uso del color blending tiene antecedentes históricos y técnicos en diversas formas de arte visual. Algunos ejemplos importantes son los siguientes:
 
 Arte tradicional: En la historia del arte, el uso de la mezcla de colores ha estado presente durante siglos. Los maestros de la pintura al óleo, como Leonardo da Vinci y Rembrandt, empleaban técnicas de mezcla de colores para lograr transiciones suaves y tonos intermedios en sus obras. Utilizaban capas de pintura superpuestas y diferentes tipos de pinceles para lograr estos efectos.
@@ -21,7 +27,7 @@ Fotografía e impresión digital: Con el advenimiento de la fotografía digital 
 
 Tecnología de visualización: La tecnología de visualización también ha jugado un papel importante en el desarrollo del color blending. Los avances en pantallas de alta resolución, como las pantallas de píxeles individuales en los monitores modernos, han permitido una representación más precisa y detallada de las mezclas de colores. Esto ha sido especialmente relevante en campos como el diseño gráfico, la animación y los videojuegos.
 
-## Solution
+## 3. Solución
 
 Esta aplicación utiliza diferentes métodos de mezcla en una imagen con un color seleccionado por el usuario.
 
@@ -298,7 +304,7 @@ void main() {
 
 {{</details >}}
 
-## Conclusions
+## 4. Conclusiones
 
 Al considerar el uso de la técnica de color blending, se pueden extraer las siguientes conclusiones:
 
@@ -310,7 +316,7 @@ Realismo y profundidad: Al utilizar el color blending de manera adecuada, es pos
 
 Herramientas digitales: Con el avance de la tecnología y las herramientas digitales, el color blending se ha vuelto aún más accesible y poderoso. Los programas de edición de imágenes y diseño gráfico ofrecen una amplia gama de herramientas y opciones para controlar y ajustar la mezcla de colores de manera precisa y flexible. Esto permite a los artistas y diseñadores tener un mayor control sobre el proceso creativo y obtener resultados más precisos y personalizados.
 
-## Future work
+## 5. Trabajo a futuro
 
 Considerando las tendencias actuales y posibles aplicaciones futuras, se pueden vislumbrar las siguientes oportunidades para el color blending:
 
