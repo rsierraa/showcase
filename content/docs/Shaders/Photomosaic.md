@@ -25,15 +25,15 @@ Aplicaciones interactivas: Con el avance de la tecnología, el fotomosaico se ha
 
 En esta aplicación, se utiliza un mecanismo similar al de la coherencia espacial para la pixelación, con la particularidad de que cada píxel de baja resolución se asigna a una imagen específica. El shader recibe una imagen que contiene todas las imágenes del conjunto de datos que formarán el mosaico. Estas imágenes se ordenan según una métrica, en este caso, el luma. El shader calcula el color para cada texel de baja resolución y luego obtiene el luma de ese color. Este valor de luma se utiliza para determinar el desplazamiento horizontal desde el extremo izquierdo utilizando la función "texture2D". De esta manera, se obtiene la coordenada x de la imagen correspondiente que se dibujará en esa sección del mosaico, es decir, la ubicación de inicio de la imagen en el buffer recibido.
 
+Para esta implementacion se utilizo Tree.texcoords2 desarrollado por Jean Pierre Charalambos (https://github.com/nakednous) y Daniel Angulo (https://github.com/dangulos)
+
 ### Controles
 
-* **Botón Elegir archivo**: para cargar una imagen o video
-* **Checkbox Video por defecto**: marcar para usar el video por defecto, desmarcar para usar la imagen por defecto
 * **Slider**: define la resolución (por defecto 30, es decir 30 pixeles de baja resolución que en este caso serán imágenes del mosaico por cada lado de la cuadrícula). El mínimo valor es 1 y el máximo 150. Una resolución mayor, implica más pixeles, y por tanto, de menor tamaño cada vez. El tamaño de la cuadrícula es de 600px x 600px  por lo que una resolución de 150 implica pixeles de baja resolución de dimensiones 4px x 4px.
-* **Select**: para decidir si ver la imagen pixelada (keys), la original o el mosaico.
-* **Input**: ingrese un número entre 1 y 30 para escoger una imagen del dataset. El dataset se muestra en orden abajo de esta aplicación. Observe por ejemplo que panda rojo le corresponde el número 7. Una vez ingresado un número puede usar las flechas de su teclado para cambiar de imagen, siempre que el foco esté sobre el input.
+* **Press n**: pasa a la siguiente imagen del dataset.
 
-{{< p5-iframe sketch="/showcase/sketches/shaders/Photomosaic/photomosaic.js" width="650" height="750" lib1="https://cdn.jsdelivr.net/gh/VisualComputing/p5.treegl/p5.treegl.js" lib2="https://cdn.jsdelivr.net/gh/objetos/p5.quadrille.js/p5.quadrille.js">}}
+
+{{<p5-iframe sketch="/showcase/sketches/shaders/Photomosaic/photomosaic2.js" width="650" height="650" lib1="https://cdn.jsdelivr.net/gh/VisualComputing/p5.treegl/p5.treegl.js" lib2="https://cdn.jsdelivr.net/gh/objetos/p5.quadrille.js/p5.quadrille.js">}}
 
 ## Dataset
 {{<details "Dataset">}}
@@ -71,125 +71,74 @@ En esta aplicación, se utiliza un mecanismo similar al de la coherencia espacia
 {{<details "Sketch Code">}}
 
 ``` js
-'use strict';
-
-let img;
-let photomosaicShader;
-
-let resolution;
-let mode;
-
-let input;
-
-let dataset = [];
-
+let n, selected;
+let mosaic;
+let uv;
 let palette;
-let pg;
-
-let imgcode;
-
-let video_on;
-
-const SAMPLE_RES = 30;
+let pics;
+let resolution, quantity;
 
 function preload() {
-  img = loadImage(`/showcase/docs/Shaders/resources/dataset/${int(random(1, 31))}.jpg`);
-  for (let i = 1; i <= 30; i++) {
-    dataset.push(loadImage(`/showcase/docs/Shaders/resources/dataset/${i}.jpg`));
-  }
-  photomosaicShader = readShader('/showcase/docs/Shaders/fragments/photomosaic.frag', { matrices: Tree.NONE, varyings: Tree.texcoords2 });
+  mosaic = readShader('/showcase/sketches/shaders/Photomosaic/normalMosaic.frag', { varyings: Tree.texcoords2 });
+  pics = [];
+  n = 31;
+  for(let i=1; i<n; i++) pics.push(loadImage(`/showcase/sketches/shaders/Photomosaic/dataset/${i}.jpg`));
+  console.log(pics)
 }
 
 function setup() {
   createCanvas(600, 600, WEBGL);
   textureMode(NORMAL);
   noStroke();
-  shader(photomosaicShader);
-  resolution = createSlider(1, 150, 100, 1);
-  resolution.position(100, 10);
-  resolution.style('width', '150px');
-  resolution.input(() => photomosaicShader.setUniform('resolution', resolution.value()));
-  photomosaicShader.setUniform('resolution', resolution.value());
-  mode = createSelect();
-  mode.position(10, 10);
-  mode.option('original');
-  mode.option('keys');
-  mode.option('photomosaic');
-  mode.selected('photomosaic');
-  mode.changed(() => {
-    if (mode.value() == 'original')
-        resolution.hide();
-    else
-        resolution.show();
-    photomosaicShader.setUniform('original', mode.value() === 'original');
-    photomosaicShader.setUniform('keys', mode.value() === 'keys');
+  
+  shader(mosaic);
+  
+  resolution = createSlider(1, 300, 1, 1);
+  resolution.position(10, 15);
+  resolution.style('width', '80px');
+  resolution.input(() => {
+    mosaic.setUniform('resolution', resolution.value());
   });
-  input = createFileInput(handleFile);
-  imgcode = createInput('', 'number');
-  palette = createQuadrille(dataset);
-  console.log(palette.height)
-  pg = createGraphics(SAMPLE_RES * palette.width, SAMPLE_RES);
-  photomosaicShader.setUniform('n', palette.width);
-  sample();
+  
+  uv = createCheckbox('uv visualization', false);
+  uv.style('color', 'magenta');
+  uv.changed(() => mosaic.setUniform('uv', uv.checked()));
+  uv.position(10, 40);
+  
+  mosaic.setUniform('n', n-1);
+  mosaic.setUniform('resolution', resolution.value());
+  mosaic.setUniform('uv', false);
+  
+  selected = floor(random() * pics.length);
+  generatePalette();
+  
+}
 
-  video_on = createCheckbox('default video', false);
-  video_on.changed(() => {
-    if (video_on.checked()) {
-      img = createVideo(['/showcase/docs/Shaders/resources/video0.mp4']);
-      img.hide();
-      img.loop();
-    } else {
-      img = loadImage(`/showcase/docs/Shaders/resources/dataset/${int(random(1, 31))}.jpg`);
-      img.hide();
-      img.pause();
-    }
-    photomosaicShader.setUniform('source', img);
-  })
+function generatePalette(){
+  palette = createGraphics(128*(n-1),128); //Object with images to shader
+  
+  for(let i=0; i<n-1; i++){
+    palette.image(pics[i], 128*i, 0, 128, 128);
+  }
+}
 
+function keyPressed() {
+  if (key === 'n' || key === 'N') {
+    selected = floor(random() * pics.length);
+    generatePalette();
+  }
 }
 
 function draw() {
-
-  if (imgcode.value() != '') {
-    img = dataset[(parseInt(imgcode.value()) - 1) % dataset.length];
-  }
-
-  if (img != null) {
-
-    image(img, 0, 0, 600, 600); 
-
-    photomosaicShader.setUniform('source', img);
-
-    beginShape();
-    vertex(-1, -1, 0, 0, 1);
-    vertex(1, -1, 0, 1, 1);
-    vertex(1, 1, 0, 1, 0);
-    vertex(-1, 1, 0, 0, 0);
-    endShape();
-  }
-}
-
-function sample() {
-  if (pg.width !== SAMPLE_RES * palette.width) {
-    pg = createGraphics(SAMPLE_RES * palette.width, SAMPLE_RES);
-    photomosaicShader.setUniform('n', palette.width);
-  }
-  palette.sort({ ascending: true, cellLength: SAMPLE_RES });
-  drawQuadrille(palette, { graphics: pg, cellLength: 30, outlineWeight: 0 });
-  photomosaicShader.setUniform('palette', pg);
-}
-
-function handleFile(file) {
-    if (file.type === 'image') {
-        img = createImg(file.data, '');
-        img.hide();
-    }
-    else if (file.type === 'video') {
-        img = createVideo([file.data]);
-        img.hide();
-        img.loop();
-        imgcode.value('') // to avoid getting dataset image instead
-    }
+  background(120);
+  mosaic.setUniform('original', pics[selected]);
+  mosaic.setUniform('pics', palette);
+  beginShape();
+  vertex(-1, -1, 0, 0, 1);
+  vertex(1, -1, 0, 1, 1);
+  vertex(1, 1, 0, 1, 0);
+  vertex(-1, 1, 0, 0, 0);
+  endShape();
 }
 ```
 {{</details >}}
@@ -199,54 +148,69 @@ function handleFile(file) {
 ``` glsl
 precision mediump float;
 
-uniform sampler2D palette;
-// source (image or video) is sent by the sketch
-uniform sampler2D source;
-uniform bool keys;
-// displays original
-uniform bool original;
+// palette is sent by the sketch and comprises the video
+const int maxNum = 29;
+uniform int n;
+uniform sampler2D original;
+uniform sampler2D pics;
 // target horizontal & vertical resolution
 uniform float resolution;
-uniform float n;
+// uv visualization
+uniform bool uv;
 
-// interpolated texcoord (same name and type as in vertex shader)
-// defined as a (normalized) vec2 in [0..1]
-varying vec2 texcoords2;
+// texture space normalized interpolated texture coordinates
+// should have same name and type as in vertex shader
+varying vec2 texcoords2; // (defined in [0..1] ∈ R)
 
-float luma(vec3 texel) {
-    return 0.299 * texel.r + 0.587 * texel.g + 0.114 * texel.b; // min 0, max 255
+float luma(vec4 texel) {
+  // alpha channel (texel.a) is just discarded
+  return 0.299 * texel.r + 0.587 * texel.g + 0.114 * texel.b;
+}
+
+float getCloser(vec4 texel, vec2 coord){
+  
+  float distancia = 999999.9;
+  float lumaOriginal = luma(texel);
+  vec4 temp;
+  float lumaTemp;
+  
+  float closest = 0.0;
+  
+  for(int i=0; i<maxNum; i++){
+    if(i<n){
+      temp = texture2D(pics, coord + float(i)*vec2(0.5/(float(n)/2.0), 0.0));
+      lumaTemp = luma(temp);
+      if(abs(lumaOriginal-lumaTemp) < distancia){
+        distancia = abs(lumaOriginal-lumaTemp);
+        closest = float(i);
+      }
+    }
+  }
+  
+  return closest;
+}
+
+float rand(vec2 co){
+  return fract(sin(dot(co, vec2(12.9898, 78.233))) * 43758.5453);
 }
 
 void main() {
-  if (original) {
-    gl_FragColor = texture2D(source, texcoords2);
-  }
-  else {
-    // i. define coord as a texcoords2 remapping in [0.0, resolution] ∈ R
-    vec2 coord = texcoords2 * resolution;
-    // ii. remap stepCoord in [0.0, resolution] ∈ Z
-    vec2 stepCoord = floor(coord);
-    vec2 symbolCoord = coord - stepCoord;
-    // iii. remap stepCoord in [0.0, 1.0] ∈ R
-    stepCoord = stepCoord / vec2(resolution); // normalized step coord
-    // source texel
-    vec4 key = texture2D(source, stepCoord); // texel will be the key to look up
-
-    // we calculate key color luma
-    float kluma = luma(key.rgb);
-
-    // palette is an image containing the 30 images but with 1.0 x 1.0 dimensions.
-    // each key will get an image from the palette: we have the symbol coord (x, y).
-    // images are ordered horizontally, so we take x, which indicates the starting coordinate of our key, and divide it by n because we have n images, 
-    // with this we can start counting from the left-most image to the right
-    // to this quotient, we add kluma, which is a value between 0 a 1. It will ensure we are going to use the correct image texel. 
-    // y coordinate need no special treatment.
-    // for each texel, we need to paint the correct portion of the image that will represent
-
-    vec4 paletteTexel = texture2D(palette, vec2(symbolCoord.x / n + kluma, symbolCoord.y));
-
-    gl_FragColor = keys ? key : paletteTexel;
-  }
+  
+  vec2 symbolCoord = texcoords2 * resolution;
+  vec2 stepCoord = floor(symbolCoord);
+  symbolCoord = symbolCoord - stepCoord;
+  
+  vec4 texel = texture2D(original, stepCoord/vec2(resolution));
+  
+  vec2 adjustedCoords = symbolCoord * vec2(0.5/(float(n)/2.0), 1.0);
+  
+  float closest = getCloser(texel, vec2(0.5/(float(n)/2.0), 1.0));
+  
+  adjustedCoords = adjustedCoords + closest*vec2(0.5/(float(n)/2.0), 0.0);
+  
+  vec4 result = texture2D(pics, adjustedCoords);
+  
+  gl_FragColor = uv ? vec4(adjustedCoords.st, 0.0, 1.0) : result;
 }
 ```
 {{</details >}}
