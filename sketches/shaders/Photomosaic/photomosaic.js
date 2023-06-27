@@ -20,11 +20,12 @@ let video_on;
 const SAMPLE_RES = 30;
 
 function preload() {
-  img = loadImage(`/showcase/docs/Shaders/resources/dataset/${int(random(1, 31))}.jpg`);
+  img = loadImage(`/showcase/sketches/shaders/Photomosaic/dataset/${int(random(1, 31))}.jpg`);
   for (let i = 1; i <= 30; i++) {
-    dataset.push(loadImage(`/showcase/docs/Shaders/resources/dataset/${i}.jpg`));
+    dataset.push(loadImage(`/showcase/sketches/shaders/Photomosaic/dataset/${i}.jpg`));
   }
-  photomosaicShader = readShader('/showcase/docs/Shaders/fragments/photomosaic.frag', { matrices: Tree.NONE, varyings: Tree.texcoords2 });
+  photomosaicShader = readShader('/showcase/sketches/shaders/Photomosaic/photomosaic.frag', { matrices: Tree.NONE, varyings: Tree.texcoords2 });
+  console.log(photomosaicShader)
 }
 
 function setup() {
@@ -51,7 +52,6 @@ function setup() {
     photomosaicShader.setUniform('original', mode.value() === 'original');
     photomosaicShader.setUniform('keys', mode.value() === 'keys');
   });
-  input = createFileInput(handleFile);
   imgcode = createInput('', 'number');
   palette = createQuadrille(dataset);
   console.log(palette.height)
@@ -62,11 +62,11 @@ function setup() {
   video_on = createCheckbox('default video', false);
   video_on.changed(() => {
     if (video_on.checked()) {
-      img = createVideo(['/showcase/docs/Shaders/resources/video0.mp4']);
+      img = createVideo('/showcase/sketches/shaders/Photomosaic/video0.mp4');
       img.hide();
       img.loop();
     } else {
-      img = loadImage(`/showcase/docs/Shaders/resources/dataset/${int(random(1, 31))}.jpg`);
+      img = loadImage(`/showcase/sketches/shaders/Photomosaic/dataset/${int(random(1, 31))}.jpg`);
       img.hide();
       img.pause();
     }
@@ -104,17 +104,4 @@ function sample() {
   palette.sort({ ascending: true, cellLength: SAMPLE_RES });
   drawQuadrille(palette, { graphics: pg, cellLength: 30, outlineWeight: 0 });
   photomosaicShader.setUniform('palette', pg);
-}
-
-function handleFile(file) {
-    if (file.type === 'image') {
-        img = createImg(file.data, '');
-        img.hide();
-    }
-    else if (file.type === 'video') {
-        img = createVideo([file.data]);
-        img.hide();
-        img.loop();
-        imgcode.value('') // to avoid getting dataset image instead
-    }
 }
